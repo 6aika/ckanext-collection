@@ -492,7 +492,7 @@ class CollectionController(p.toolkit.BaseController):
         context = {'model': model, 'session': model.Session,
                    'user': c.user, 'for_view': True,
                    'auth_user_obj': c.userobj, 'use_cache': False}
-        data_dict = {'id': id}
+        data_dict = {'id': id, 'type': 'collection'}
         try:
             c.pkg_dict = get_action('package_show')(context, data_dict)
             pkg_obj = Package.get(data_dict['id'])
@@ -540,7 +540,7 @@ class CollectionController(p.toolkit.BaseController):
 
         c.collection_dropdown = [[group['id'], group['display_name']]
                             for group in users_groups if
-                            group['id'] not in pkg_group_ids and group['type'] == 'collection']
+                            group['id'] not in pkg_group_ids]
 
 
         for group in c.pkg_dict.get('groups', []):
