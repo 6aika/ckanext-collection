@@ -25,6 +25,8 @@ class CollectionPlugin(plugins.SingletonPlugin):
 
             m.connect('/collection/edit/:id', action='edit')
 
+            m.connect('/collection/delete/:id', action='delete')
+
             m.connect('/collection/about/:id', action='about')
 
             m.connect('dataset_collection_list', '/dataset/collections/{id}',

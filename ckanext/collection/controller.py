@@ -60,6 +60,17 @@ class CollectionController(p.toolkit.BaseController):
         ''' select the correct group/org check_access '''
         return check_access(self._replace_group_org(action_name), *args, **kw)
 
+    def _render_template(self, template_name, group_type):
+        ''' render the correct collection template '''
+        return render(self._replace_group_org(template_name),
+                      extra_vars={'group_type': group_type})
+
+    def _redirect_to_this_controller(self, *args, **kw):
+        ''' wrapper around redirect_to but it adds in this request's controller
+        (so that it works for Organization or other derived controllers)'''
+        kw['controller'] = request.environ['pylons.routes_dict']['controller']
+        return h.redirect_to(*args, **kw)
+
     def _setup_template_variables(self, context, data_dict, group_type=None):
         return lookup_group_plugin(group_type). \
             setup_template_variables(context, data_dict)
@@ -443,6 +454,34 @@ class CollectionController(p.toolkit.BaseController):
             errors = e.error_dict
             error_summary = e.error_summary
             return self.edit(id, data_dict, errors, error_summary)
+
+
+    def delete(self, id):
+        group_type = self._ensure_controller_matches_group_type(id)
+
+        if 'cancel' in request.params:
+            self._redirect_to_this_controller(action='edit', id=id)
+
+        context = {'model': model, 'session': model.Session,
+                   'user': c.user}
+
+        try:
+            self._check_access('group_delete', context, {'id': id})
+        except NotAuthorized:
+            abort(403, _('Unauthorized to delete group %s') % '')
+
+        try:
+            if request.method == 'POST':
+                self._action('group_delete')(context, {'id': id})
+                h.flash_notice(_('Collection has been deleted.'))
+                self._redirect_to_this_controller(action='search_collection')
+            c.group_dict = self._action('group_show')(context, {'id': id})
+        except NotAuthorized:
+            abort(403, _('Unauthorized to delete collection %s') % '')
+        except NotFound:
+            abort(404, _('Collection not found'))
+        return render('collection/confirm_delete.html',
+                      extra_vars={'group_type': group_type})
 
 
     def dataset_collection_list(self, id):
