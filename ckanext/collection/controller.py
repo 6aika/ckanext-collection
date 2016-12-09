@@ -78,7 +78,7 @@ class CollectionController(p.toolkit.BaseController):
     def _new_template(self, group_type):
         return 'collection/new.html'
 
-    def _index_template(self, group_type):
+    def _index_template(self):
         return 'collection/index.html'
 
     def _about_template(self):
@@ -99,8 +99,6 @@ class CollectionController(p.toolkit.BaseController):
         return group.type
 
     def search_collection(self):
-
-        group_type = 'collection'
 
         page = h.get_page_number(request.params) or 1
         items_per_page = 21
@@ -127,7 +125,7 @@ class CollectionController(p.toolkit.BaseController):
             'all_fields': False,
             'q': q,
             'sort': sort_by,
-            'type': group_type or 'group',
+            'type': 'collection',
         }
         global_results = self._action('group_list')(context,
                                                     data_dict_global_results)
@@ -136,7 +134,7 @@ class CollectionController(p.toolkit.BaseController):
             'all_fields': True,
             'q': q,
             'sort': sort_by,
-            'type': group_type or 'group',
+            'type': 'collection',
             'limit': items_per_page,
             'offset': items_per_page * (page - 1),
         }
@@ -151,19 +149,17 @@ class CollectionController(p.toolkit.BaseController):
         )
 
         c.page.items = page_results
-        return render(self._index_template(group_type),
-                      extra_vars={'group_type': group_type})
+        return render(self._index_template(),
+                      extra_vars={'group_type': 'collection'})
 
 
     def read(self, id, limit=20):
-        group_type = self._ensure_controller_matches_group_type(
-            id.split('@')[0])
 
         context = {'model': model, 'session': model.Session,
                    'user': c.user,
-                   'schema': self._db_to_form_schema(group_type=group_type),
+                   'schema': self._db_to_form_schema(group_type='collection'),
                    'for_view': True}
-        data_dict = {'id': id, 'type': group_type}
+        data_dict = {'id': id, 'type': 'collection'}
 
         # unicode format (decoded from utf8)
         c.q = request.params.get('q', '')
@@ -177,9 +173,9 @@ class CollectionController(p.toolkit.BaseController):
         except (NotFound, NotAuthorized):
             abort(404, _('Collection not found'))
 
-        self._read(id, limit, group_type)
+        self._read(id, limit, 'collection')
         return render(self._read_template(c.group_dict['type']),
-                      extra_vars={'group_type': group_type})
+                      extra_vars={'group_type': 'collection'})
 
 
     def _read(self, id, limit, group_type):
@@ -191,10 +187,7 @@ class CollectionController(p.toolkit.BaseController):
 
         q = c.q = request.params.get('q', '')
         # Search within group
-        if c.group_dict.get('is_organization'):
-            q += ' owner_org:"%s"' % c.group_dict.get('id')
-        else:
-            q += ' groups:"%s"' % c.group_dict.get('name')
+        q += ' groups:"%s"' % c.group_dict.get('name')
 
         c.description_formatted = \
             h.render_markdown(c.group_dict.get('description'))
