@@ -510,7 +510,7 @@ class CollectionController(p.toolkit.BaseController):
 
             removed_group = None
             for param in request.POST:
-                if param.startswith('group_remove'):
+                if param.startswith('collection_remove'):
                     removed_group = param.split('.')[-1]
                     break
             if removed_group:
