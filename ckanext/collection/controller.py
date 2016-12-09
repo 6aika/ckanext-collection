@@ -486,6 +486,7 @@ class CollectionController(p.toolkit.BaseController):
                    'user': c.user, 'for_view': True,
                    'auth_user_obj': c.userobj, 'use_cache': False}
         data_dict = {'id': id, 'type': 'collection'}
+        c.collection_list = []
         try:
             c.pkg_dict = get_action('package_show')(context, data_dict)
             pkg_obj = Package.get(data_dict['id'])
@@ -527,7 +528,7 @@ class CollectionController(p.toolkit.BaseController):
         users_groups = get_action('group_list_authz')(context, data_dict)
 
         pkg_group_ids = set(group['id'] for group
-                            in c.pkg_dict.get('groups', []))
+                            in c.collection_list)
         user_group_ids = set(group['id'] for group
                              in users_groups)
 
@@ -536,7 +537,7 @@ class CollectionController(p.toolkit.BaseController):
                             group['id'] not in pkg_group_ids]
 
 
-        for group in c.pkg_dict.get('groups', []):
+        for group in c.collection_list:
             group['user_member'] = (group['id'] in user_group_ids)
 
         return render('package/collection_list.html',
