@@ -534,8 +534,7 @@ class CollectionController(p.toolkit.BaseController):
 
         c.collection_dropdown = [[group['id'], group['display_name']]
                             for group in users_groups if
-                            group['id'] not in pkg_group_ids]
-
+                            group['id'] not in pkg_group_ids and group['type'] == 'collection']
 
         for group in c.collection_list:
             group['user_member'] = (group['id'] in user_group_ids)
