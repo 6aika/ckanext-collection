@@ -34,7 +34,7 @@ Example:
         {% endif %}
       {% endblock %}
       {% block link %}
-        <a href="/collection/{{ collection.name }}" title="{{ _('View {name}').format(name=collection.display_name) }}" class="media-view">
+        <a href="collection/{{ collection.name }}" title="{{ _('View {name}').format(name=collection.display_name) }}" class="media-view">
           <span>{{ _('View {name}').format(name=collection.display_name) }}</span>
         </a>
       {% endblock %}
