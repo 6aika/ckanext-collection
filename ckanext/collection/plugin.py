@@ -1,15 +1,18 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from routes.mapper import SubMapper
+from ckan.lib.plugins import DefaultTranslation
 import json
 
 import logging
 log = logging.getLogger(__name__)
 
-class CollectionPlugin(plugins.SingletonPlugin):
+class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IRoutes, inherit=True)
     plugins.implements(plugins.IPackageController, inherit=True)
+    if toolkit.check_ckan_version(min_version='2.5.0'):
+        plugins.implements(plugins.ITranslation, inherit=True)
 
     # IConfigurer
 
