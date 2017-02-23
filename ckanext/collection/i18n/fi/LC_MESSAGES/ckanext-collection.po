@@ -304,42 +304,42 @@ msgstr ""
 #: ckanext/collection/templates/snippets/search_result_text.html:15
 msgid "{number} dataset found for \"{query}\""
 msgid_plural "{number} datasets found for \"{query}\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Haulla \"{query}\" löytyi {number} aineisto"
+msgstr[1] "Haulla \"{query}\" löytyi {number} aineistoa"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:16
 msgid "No datasets found for \"{query}\""
-msgstr ""
+msgstr "Haulla \"{query}\" ei löytynyt tietoaineistoja"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:17
 msgid "{number} dataset found"
 msgid_plural "{number} datasets found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Löytyi {number} tietoaineisto"
+msgstr[1] "Löytyi {number} tietoaineistoa"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:18
 msgid "No datasets found"
-msgstr ""
+msgstr "Tietoaineistoja ei löytynyt"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:21
 msgid "{number} group found for \"{query}\""
 msgid_plural "{number} groups found for \"{query}\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Haulla \"{query}\" löytyi {number} kategoria"
+msgstr[1] "Haulla \"{query}\" löytyi {number} kategoriaa"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:22
 msgid "No groups found for \"{query}\""
-msgstr ""
+msgstr "Haulla \"{query}\" ei löytynyt kategorioita"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:23
 msgid "{number} group found"
 msgid_plural "{number} groups found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Löytyi {number} kategoria"
+msgstr[1] "Löytyi {number} kategoriaa"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:24
 msgid "No groups found"
-msgstr ""
+msgstr "Kategorioita ei löytynyt"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:27
 msgid "{number} collection found for \"{query}\""
@@ -364,19 +364,19 @@ msgstr "Aineistokokonaisuuksia ei löytynyt"
 #: ckanext/collection/templates/snippets/search_result_text.html:33
 msgid "{number} organization found for \"{query}\""
 msgid_plural "{number} organizations found for \"{query}\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Haulla \"{query}\" löytyi {number} organisaatio"
+msgstr[1] "Haulla \"{query}\" löytyi {number} organisaatiota"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:34
 msgid "No organizations found for \"{query}\""
-msgstr ""
+msgstr "Haulla \"{query}\" ei löytynyt organisaatioita"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:35
 msgid "{number} organization found"
 msgid_plural "{number} organizations found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Löytyi {number} organisaatio"
+msgstr[1] "Löytyi {number} organisaatiota"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:36
 msgid "No organizations found"
-msgstr ""
+msgstr "Organisaatioita ei löytynyt"
