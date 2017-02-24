@@ -29,15 +29,15 @@ msgstr "Aineistokokonaisuutta ei löytynyt"
 
 #: ckanext/collection/controller.py:87
 msgid "Incorrect group type"
-msgstr ""
+msgstr "Virheellinen ryhmän tyyppi"
 
 #: ckanext/collection/controller.py:107
 msgid "Not authorized to see this page"
-msgstr ""
+msgstr "Tämän sivun näyttäminen ei ole sallittu"
 
 #: ckanext/collection/controller.py:249
 msgid "Organizations"
-msgstr ""
+msgstr "Organisaatiot"
 
 #: ckanext/collection/controller.py:250
 #: ckanext/collection/templates/collection/base_form_page.html:6
@@ -63,7 +63,7 @@ msgstr "Muodot"
 
 #: ckanext/collection/controller.py:253
 msgid "Licenses"
-msgstr ""
+msgstr "Lisenssit"
 
 #: ckanext/collection/controller.py:339
 msgid "Unauthorized to create a collection"
@@ -221,8 +221,8 @@ msgstr "Tallenna aineistokokonaisuus"
 #: ckanext/collection/templates/collection/snippets/collection_item.html:31
 msgid "{num} Dataset"
 msgid_plural "{num} Datasets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{num} tietoaineisto"
+msgstr[1] "{num} tietoaineistoa"
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:33
 msgid "0 Datasets"
@@ -247,7 +247,7 @@ msgstr "Tietoaineistoja aineistokokonaisuudessa: {group}"
 
 #: ckanext/collection/templates/collection/snippets/feeds.html:4
 msgid "Recent Revision History"
-msgstr ""
+msgstr "Viimeaikaisin revisiohistoria"
 
 #: ckanext/collection/templates/collection/snippets/helper.html:4
 msgid "What are Collections?"
@@ -291,15 +291,15 @@ msgstr "Tietoaineisto ei kuulu aineistokokonaisuuksiin"
 
 #: ckanext/collection/templates/package/read_base.html:4
 msgid "Dataset"
-msgstr ""
+msgstr "Tietoaineisto"
 
 #: ckanext/collection/templates/package/read_base.html:5
 msgid "Groups"
-msgstr ""
+msgstr "Kategoriat"
 
 #: ckanext/collection/templates/package/read_base.html:6
 msgid "Activity Stream"
-msgstr ""
+msgstr "Aktiivisuusvirta"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:15
 msgid "{number} dataset found for \"{query}\""
