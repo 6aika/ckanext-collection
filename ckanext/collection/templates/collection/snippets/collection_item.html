@@ -18,29 +18,31 @@ Example:
       {% block image %}
         <img src="{{ collection.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ collection.name }}" class="media-image">
       {% endblock %}
-      {% block title %}
-        <h3 class="media-heading">{{ collection.display_name }}</h3>
-      {% endblock %}
-      {% block description %}
-        {% if collection.description %}
-          <p>{{ h.markdown_extract(collection.description, extract_length=80) }}</p>
+      <div class="item-content">
+        {% block title %}
+          <h3 class="media-heading">{{ collection.display_name }}</h3>
+        {% endblock %}
+        {% block description %}
+          {% if collection.description %}
+            <p>{{ h.markdown_extract(collection.description, extract_length=80) }}</p>
+          {% endif %}
+        {% endblock %}
+        {% block datasets %}
+          {% if collection.packages %}
+            <strong class="count">{{ ungettext('{num} Dataset', '{num} Datasets', collection.packages).format(num=collection.packages) }}</strong>
+          {% elif collection.packages == 0 %}
+            <span class="count">{{ _('0 Datasets') }}</span>
+          {% endif %}
+        {% endblock %}
+        {% block link %}
+          <a href="collection/{{ collection.name }}" title="{{ _('View {name}').format(name=collection.display_name) }}" class="media-view">
+            <span>{{ _('View {name}').format(name=collection.display_name) }}</span>
+          </a>
+        {% endblock %}
+        {% if collection.user_member %}
+          <input name="collection_remove.{{ collection.id }}" value="{{ _('Remove') }}" type="submit" class="btn btn-danger btn-small media-edit" title="{{ _('Remove dataset from this collection') }}"/>
         {% endif %}
-      {% endblock %}
-      {% block datasets %}
-        {% if collection.packages %}
-          <strong class="count">{{ ungettext('{num} Dataset', '{num} Datasets', collection.packages).format(num=collection.packages) }}</strong>
-        {% elif collection.packages == 0 %}
-          <span class="count">{{ _('0 Datasets') }}</span>
-        {% endif %}
-      {% endblock %}
-      {% block link %}
-        <a href="collection/{{ collection.name }}" title="{{ _('View {name}').format(name=collection.display_name) }}" class="media-view">
-          <span>{{ _('View {name}').format(name=collection.display_name) }}</span>
-        </a>
-      {% endblock %}
-      {% if collection.user_member %}
-        <input name="collection_remove.{{ collection.id }}" value="{{ _('Remove') }}" type="submit" class="btn btn-danger btn-small media-edit" title="{{ _('Remove dataset from this collection') }}"/>
-      {% endif %}
+      </div>
     {% endblock %}
   </li>
 {% endblock %}
