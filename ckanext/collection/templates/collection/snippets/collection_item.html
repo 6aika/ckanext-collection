@@ -34,8 +34,11 @@ Example:
             <span class="count">{{ _('0 Datasets') }}</span>
           {% endif %}
         {% endblock %}
+        {% if collection.user_member %}
+          <input name="collection_remove.{{ collection.id }}" value="{{ _('Remove') }}" type="submit" class="btn btn-danger btn-small media-edit" title="{{ _('Remove dataset from this collection') }}"/>
+        {% endif %}
         {% block link %}
-          <a href="collection/{{ collection.name }}" title="{{ _('View {name}').format(name=collection.display_name) }}" class="media-view">
+          <a href="{{ h.url_for(controller='ckanext.collection.controller:CollectionController', action='read', id=collection.name) }}" title="{{ _('View {name}').format(name=collection.display_name) }}" class="media-view">
             <span>{{ _('View {name}').format(name=collection.display_name) }}</span>
           </a>
         {% endblock %}

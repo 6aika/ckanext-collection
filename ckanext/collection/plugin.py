@@ -49,10 +49,11 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
     def before_index(self, data_dict):
 
         groups = json.loads(data_dict.get('data_dict', {})).get('groups',[])
-        if groups is not []:
-            data_dict['collections'] = [group.get('display_name', '') for group in groups if group.get('type', "") == 'collection']
 
-        data_dict['groups'] = [group for group in data_dict['groups'] if group not in data_dict['collections']]
+        data_dict['collections'] = [group.get('display_name', '') for group in groups if group.get('type', "") == 'collection']
+
+        groups_to_remove = [group.get('name', '') for group in groups if group.get('type', "") == 'collection']
+        data_dict['groups'] = [group for group in data_dict['groups'] if group not in groups_to_remove]
 
 
         return data_dict
