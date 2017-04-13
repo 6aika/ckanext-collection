@@ -1,15 +1,15 @@
 # Translations template for ckanext-collection.
-# Copyright (C) 2016 ORGANIZATION
+# Copyright (C) 2017 ORGANIZATION
 # This file is distributed under the same license as the ckanext-collection
 # project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-collection 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-12-07 15:53+0000\n"
+"POT-Creation-Date: 2017-04-13 10:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,26 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 
-#: ckanext/collection/controller.py:85 ckanext/collection/controller.py:167
-#: ckanext/collection/controller.py:383 ckanext/collection/controller.py:417
-#: ckanext/collection/controller.py:439 ckanext/collection/controller.py:476
-#: ckanext/collection/controller.py:491 ckanext/collection/controller.py:534
+#: ckanext/collection/controller.py:96 ckanext/collection/controller.py:174
+#: ckanext/collection/controller.py:387 ckanext/collection/controller.py:421
+#: ckanext/collection/controller.py:443 ckanext/collection/controller.py:475
+#: ckanext/collection/controller.py:509 ckanext/collection/controller.py:524
+#: ckanext/collection/controller.py:566
 msgid "Collection not found"
 msgstr ""
 
-#: ckanext/collection/controller.py:87
+#: ckanext/collection/controller.py:98
 msgid "Incorrect group type"
 msgstr ""
 
-#: ckanext/collection/controller.py:107
+#: ckanext/collection/controller.py:116
 msgid "Not authorized to see this page"
 msgstr ""
 
-#: ckanext/collection/controller.py:249
+#: ckanext/collection/controller.py:253
 msgid "Organizations"
 msgstr ""
 
-#: ckanext/collection/controller.py:250
+#: ckanext/collection/controller.py:254
 #: ckanext/collection/templates/collection/base_form_page.html:6
 #: ckanext/collection/templates/collection/edit_base.html:3
 #: ckanext/collection/templates/collection/edit_base.html:8
@@ -51,32 +52,46 @@ msgstr ""
 msgid "Collections"
 msgstr ""
 
-#: ckanext/collection/controller.py:251
+#: ckanext/collection/controller.py:255
 msgid "Tags"
 msgstr ""
 
-#: ckanext/collection/controller.py:252
+#: ckanext/collection/controller.py:256
 msgid "Formats"
 msgstr ""
 
-#: ckanext/collection/controller.py:253
+#: ckanext/collection/controller.py:257
 msgid "Licenses"
 msgstr ""
 
-#: ckanext/collection/controller.py:339
+#: ckanext/collection/controller.py:343
 msgid "Unauthorized to create a collection"
 msgstr ""
 
-#: ckanext/collection/controller.py:392
+#: ckanext/collection/controller.py:396
 #, python-format
 msgid "User %r not authorized to edit %s"
 msgstr ""
 
-#: ckanext/collection/controller.py:419 ckanext/collection/controller.py:441
+#: ckanext/collection/controller.py:423 ckanext/collection/controller.py:445
 msgid "Integrity Error"
 msgstr ""
 
-#: ckanext/collection/controller.py:463
+#: ckanext/collection/controller.py:464
+#, python-format
+msgid "Unauthorized to delete group %s"
+msgstr ""
+
+#: ckanext/collection/controller.py:469
+msgid "Collection has been deleted."
+msgstr ""
+
+#: ckanext/collection/controller.py:473
+#, python-format
+msgid "Unauthorized to delete collection %s"
+msgstr ""
+
+#: ckanext/collection/controller.py:496
 msgid "Dataset not found"
 msgstr ""
 
@@ -90,6 +105,19 @@ msgstr ""
 
 #: ckanext/collection/templates/collection/base_form_page.html:11
 msgid "Collection Form"
+msgstr ""
+
+#: ckanext/collection/templates/collection/confirm_delete.html:3
+#: ckanext/collection/templates/collection/confirm_delete.html:15
+msgid "Confirm Delete"
+msgstr ""
+
+#: ckanext/collection/templates/collection/confirm_delete.html:11
+msgid "Are you sure you want to delete collection - {name}?"
+msgstr ""
+
+#: ckanext/collection/templates/collection/confirm_delete.html:14
+msgid "Cancel"
 msgstr ""
 
 #: ckanext/collection/templates/collection/edit.html:4
@@ -109,14 +137,6 @@ msgstr ""
 
 #: ckanext/collection/templates/collection/edit_base.html:16
 msgid "View"
-msgstr ""
-
-#: ckanext/collection/templates/collection/edit_base.html:20
-msgid "Edit"
-msgstr ""
-
-#: ckanext/collection/templates/collection/edit_base.html:21
-msgid "Members"
 msgstr ""
 
 #: ckanext/collection/templates/collection/index.html:13
@@ -216,27 +236,29 @@ msgstr ""
 msgid "Save Collection"
 msgstr ""
 
-#: ckanext/collection/templates/collection/snippets/collection_item.html:31
+#: ckanext/collection/templates/collection/snippets/collection_item.html:32
 msgid "{num} Dataset"
 msgid_plural "{num} Datasets"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ckanext/collection/templates/collection/snippets/collection_item.html:33
+#: ckanext/collection/templates/collection/snippets/collection_item.html:34
 msgid "0 Datasets"
 msgstr ""
 
-#: ckanext/collection/templates/collection/snippets/collection_item.html:37
 #: ckanext/collection/templates/collection/snippets/collection_item.html:38
-msgid "View {name}"
-msgstr ""
-
-#: ckanext/collection/templates/collection/snippets/collection_item.html:42
+#: ckanext/collection/templates/collection/snippets/collection_item.html:46
 msgid "Remove"
 msgstr ""
 
-#: ckanext/collection/templates/collection/snippets/collection_item.html:42
+#: ckanext/collection/templates/collection/snippets/collection_item.html:38
+#: ckanext/collection/templates/collection/snippets/collection_item.html:46
 msgid "Remove dataset from this collection"
+msgstr ""
+
+#: ckanext/collection/templates/collection/snippets/collection_item.html:41
+#: ckanext/collection/templates/collection/snippets/collection_item.html:42
+msgid "View {name}"
 msgstr ""
 
 #: ckanext/collection/templates/collection/snippets/feeds.html:3
@@ -264,10 +286,6 @@ msgid "Deleted"
 msgstr ""
 
 #: ckanext/collection/templates/collection/snippets/info.html:24
-msgid "Followers"
-msgstr ""
-
-#: ckanext/collection/templates/collection/snippets/info.html:28
 msgid "Datasets"
 msgstr ""
 
