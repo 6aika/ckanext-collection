@@ -485,7 +485,7 @@ class CollectionController(p.toolkit.BaseController):
         context = {'model': model, 'session': model.Session,
                    'user': c.user, 'for_view': True,
                    'auth_user_obj': c.userobj, 'use_cache': False}
-        data_dict = {'id': id, 'type': 'collection'}
+        data_dict = {'id': id, 'type': 'collection', 'all_fields': True}
         c.collection_list = []
         try:
             c.pkg_dict = get_action('package_show')(context, data_dict)
@@ -525,19 +525,17 @@ class CollectionController(p.toolkit.BaseController):
             h.redirect_to(controller='ckanext.collection.controller:CollectionController', action='dataset_collection_list', id=id)
 
         context['is_member'] = True
-        users_groups = get_action('group_list_authz')(context, data_dict)
+
+        # Every collection will get listed here instead of using group_list_authz as implemented in CKAN core groups,
+        # since group_list_authz does not support group type
+        collections = get_action('group_list')(context, data_dict)
 
         pkg_group_ids = set(group['id'] for group
                             in c.collection_list)
-        user_group_ids = set(group['id'] for group
-                             in users_groups)
 
         c.collection_dropdown = [[group['id'], group['display_name']]
-                            for group in users_groups if
-                            group['id'] not in pkg_group_ids and group['type'] == 'collection']
-
-        for group in c.collection_list:
-            group['user_member'] = (group['id'] in user_group_ids)
+                                 for group in collections if
+                                 group['id'] not in pkg_group_ids]
 
         return render('package/collection_list.html',
                       {'dataset_type': dataset_type})
