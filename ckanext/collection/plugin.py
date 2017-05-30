@@ -10,7 +10,6 @@ log = logging.getLogger(__name__)
 
 class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
-    plugins.implements(plugins.IConfigurable)
     plugins.implements(plugins.IRoutes, inherit=True)
     plugins.implements(plugins.IPackageController, inherit=True)
     if toolkit.check_ckan_version(min_version='2.5.0'):
@@ -23,20 +22,6 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'collection')
-
-    # IConfigurable
-
-    def configure(self, config):
-        # Raise an exception if required configs are missing
-        required_keys = (
-            'ckanext.collection.api_collection_name_or_id',
-        )
-
-        for key in required_keys:
-            if config.get(key) is None:
-                raise RuntimeError(
-                    'Required configuration option {0} not found.'.format(key)
-                )
 
     # IRoutes
 

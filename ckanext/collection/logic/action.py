@@ -12,4 +12,5 @@ def api_collection_show(context, data_dict):
         'type': 'collection',
         'id': config.get('ckanext.collection.api_collection_name_or_id')
     }
+
     return get_action('group_show')(context, data_dict)
