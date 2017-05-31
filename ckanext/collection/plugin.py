@@ -23,6 +23,15 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'collection')
 
+    def update_config_schema(self, schema):
+        ignore_missing = toolkit.get_validator('ignore_missing')
+
+        schema.update({
+            'ckanext.collection.api_collection_name_or_id': [ignore_missing, unicode],
+        })
+
+        return schema
+
     # IRoutes
 
     def before_map(self, map):

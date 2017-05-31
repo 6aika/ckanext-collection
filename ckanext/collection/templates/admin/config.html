@@ -1,0 +1,8 @@
+{% ckan_extends %}
+
+{% import 'macros/form.html' as form %}
+
+{% block admin_form %}
+{{ super() }}
+{{ form.input('ckanext.collection.api_collection_name_or_id', id='field-ckanext.collection.api_collection_name_or_id', label=_('Name of the collection containing interfaces (API count will be shown on homepage)'), value=data['ckanext.collection.api_collection_name_or_id'], error=errors['ckanext.collection.api_collection_name_or_id']) }}
+{% endblock %}
