@@ -7,10 +7,13 @@ get_action = logic.get_action
 @toolkit.side_effect_free
 def api_collection_show(context, data_dict):
     data_dict = {
-        'all_fields': False,
         'include_extras': False,
-        'type': 'collection',
+        'include_datasets': False,
+        'include_dataset_count': True,
+        'include_users': False,
+        'include_groups': False,
+        'include_followers': False,
+        'include_tags': False,
         'id': config.get('ckanext.collection.api_collection_name_or_id')
     }
-
     return get_action('group_show')(context, data_dict)
