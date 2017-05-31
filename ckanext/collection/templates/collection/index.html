@@ -3,7 +3,7 @@
 {% block subtitle %}{{ _('Collections') }}{% endblock %}
 
 {% block breadcrumb_content %}
-  <li class="active">{% link_for _('Collections'), controller='ckanext.collection.controller:CollectionController', action='search_collection' %}</li>
+  <li class="active">{% link_for _('Collections'), controller='ckanext.collection.controller:CollectionController', action='index' %}</li>
 {% endblock %}
 
 {% block page_header %}{% endblock %}

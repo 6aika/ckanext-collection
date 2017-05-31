@@ -1,16 +1,16 @@
 import ckan.plugins as p
 import ckan.lib.base as base
 import ckan.lib.helpers as h
-import ckan.lib.navl.dictization_functions as dict_fns
 import ckan.logic as logic
 import ckan.model as model
 import ckan.lib.plugins
-import ckan.plugins as plugins
 import logging
 import ckan.lib.maintain as maintain
+import ckan.lib.navl.dictization_functions as dict_fns
 import ckan.lib.search as search
 from ckan.model.package import Package
 from ckan.lib.dictization.model_dictize import group_list_dictize
+from ckan.controllers.group import GroupController
 
 from ckan.common import c, OrderedDict, g, request, _
 from urllib import urlencode
@@ -36,44 +36,15 @@ lookup_group_controller = ckan.lib.plugins.lookup_group_controller
 
 log = logging.getLogger(__name__)
 
-class CollectionController(p.toolkit.BaseController):
+class CollectionController(GroupController):
 
     group_types = ['collection']
 
+    def _guess_group_type(self, expecting_name=False):
+        return 'collection'
+
     def _group_form(self, group_type=None):
         return 'collection/new_collection_form.html'
-
-    def _db_to_form_schema(self, group_type=None):
-        '''This is an interface to manipulate data from the database
-        into a format suitable for the form (optional)'''
-        return lookup_group_plugin(group_type).db_to_form_schema()
-
-    def _replace_group_org(self, string):
-        ''' substitute organization for group if this is an org'''
-        return string
-
-    def _action(self, action_name):
-        ''' select the correct group/org action '''
-        return get_action(self._replace_group_org(action_name))
-
-    def _check_access(self, action_name, *args, **kw):
-        ''' select the correct group/org check_access '''
-        return check_access(self._replace_group_org(action_name), *args, **kw)
-
-    def _render_template(self, template_name, group_type):
-        ''' render the correct collection template '''
-        return render(self._replace_group_org(template_name),
-                      extra_vars={'group_type': group_type})
-
-    def _redirect_to_this_controller(self, *args, **kw):
-        ''' wrapper around redirect_to but it adds in this request's controller
-        (so that it works for Organization or other derived controllers)'''
-        kw['controller'] = request.environ['pylons.routes_dict']['controller']
-        return h.redirect_to(*args, **kw)
-
-    def _setup_template_variables(self, context, data_dict, group_type=None):
-        return lookup_group_plugin(group_type). \
-            setup_template_variables(context, data_dict)
 
     def _new_template(self, group_type):
         return 'collection/new.html'
@@ -90,15 +61,7 @@ class CollectionController(p.toolkit.BaseController):
     def _edit_template(self):
         return 'collection/edit.html'
 
-    def _ensure_controller_matches_group_type(self, id):
-        group = model.Group.get(id)
-        if group is None:
-            abort(404, _('Collection not found'))
-        if group.type not in self.group_types:
-            abort(404, _('Incorrect group type'))
-        return group.type
-
-    def search_collection(self):
+    def index(self):
 
         page = h.get_page_number(request.params) or 1
         items_per_page = 21
@@ -318,94 +281,6 @@ class CollectionController(p.toolkit.BaseController):
         self._setup_template_variables(context, {'id': id},
                                        group_type=group_type)
 
-
-    def _update_facet_titles(self, facets, group_type):
-        for plugin in plugins.PluginImplementations(plugins.IFacets):
-            facets = plugin.group_facets(
-                facets, group_type, None)
-
-
-    def new(self, data=None, errors=None, error_summary=None):
-        if data and 'type' in data:
-                group_type = data['type']
-        else:
-            group_type = 'collection'
-        if data:
-            data['type'] = group_type
-
-        context = {'model': model, 'session': model.Session,
-                   'user': c.user,
-                   'save': 'save' in request.params,
-                   'parent': request.params.get('parent', None)}
-        try:
-            self._check_access('group_create', context)
-        except NotAuthorized:
-            abort(403, _('Unauthorized to create a collection'))
-
-        if context['save'] and not data:
-            return self._save_new(context, group_type)
-
-        data = data or {}
-        if not data.get('image_url', '').startswith('http'):
-            data.pop('image_url', None)
-
-        errors = errors or {}
-        error_summary = error_summary or {}
-        vars = {'data': data, 'errors': errors,
-                'error_summary': error_summary, 'action': 'new',
-                'group_type': group_type}
-
-        self._setup_template_variables(context, data, group_type=group_type)
-        c.form = render(self._group_form(group_type=group_type),
-                        extra_vars=vars)
-        return render(self._new_template(group_type),
-                      extra_vars={'group_type': group_type})
-
-
-    def edit(self, id, data=None, errors=None, error_summary=None):
-        group_type = self._ensure_controller_matches_group_type(
-            id.split('@')[0])
-
-        context = {'model': model, 'session': model.Session,
-                   'user': c.user,
-                   'save': 'save' in request.params,
-                   'for_edit': True,
-                   'parent': request.params.get('parent', None)
-                   }
-        data_dict = {'id': id, 'include_datasets': False}
-
-        if context['save'] and not data:
-            return self._save_edit(id, context)
-
-        try:
-            data_dict['include_datasets'] = False
-            old_data = self._action('group_show')(context, data_dict)
-            c.grouptitle = old_data.get('title')
-            c.groupname = old_data.get('name')
-            data = data or old_data
-        except (NotFound, NotAuthorized):
-            abort(404, _('Collection not found'))
-
-        group = context.get("group")
-        c.group = group
-        c.group_dict = self._action('group_show')(context, data_dict)
-
-        try:
-            self._check_access('group_update', context)
-        except NotAuthorized:
-            abort(403, _('User %r not authorized to edit %s') % (c.user, id))
-
-        errors = errors or {}
-        vars = {'data': data, 'errors': errors,
-                'error_summary': error_summary, 'action': 'edit',
-                'group_type': group_type}
-
-        self._setup_template_variables(context, data, group_type=group_type)
-        c.form = render(self._group_form(group_type), extra_vars=vars)
-        return render(self._edit_template(),
-                      extra_vars={'group_type': group_type})
-
-
     def _save_new(self, context, group_type=None):
         try:
             data_dict = clean_dict(dict_fns.unflatten(
@@ -414,8 +289,6 @@ class CollectionController(p.toolkit.BaseController):
             context['message'] = data_dict.get('log_message', '')
             data_dict['users'] = [{'name': c.user, 'capacity': 'admin'}]
             group = self._action('group_create')(context, data_dict)
-
-            # Redirect to the appropriate _read route for the type of group
             h.redirect_to(str('/collection/' + group['name']))
         except (NotFound, NotAuthorized), e:
             abort(404, _('Collection not found'))
@@ -425,29 +298,6 @@ class CollectionController(p.toolkit.BaseController):
             errors = e.error_dict
             error_summary = e.error_summary
             return self.new(data_dict, errors, error_summary)
-
-
-    def _save_edit(self, id, context):
-        try:
-            data_dict = clean_dict(dict_fns.unflatten(
-                tuplize_dict(parse_params(request.params))))
-            context['message'] = data_dict.get('log_message', '')
-            data_dict['id'] = id
-            context['allow_partial_update'] = True
-            group = self._action('group_update')(context, data_dict)
-            if id != group['name']:
-                self._force_reindex(group)
-
-            h.redirect_to(controller='ckanext.collection.controller:CollectionController', action='read', id=id)
-        except (NotFound, NotAuthorized), e:
-            abort(404, _('Collection not found'))
-        except dict_fns.DataError:
-            abort(400, _(u'Integrity Error'))
-        except ValidationError, e:
-            errors = e.error_dict
-            error_summary = e.error_summary
-            return self.edit(id, data_dict, errors, error_summary)
-
 
     def delete(self, id):
         group_type = self._ensure_controller_matches_group_type(id)
@@ -467,7 +317,7 @@ class CollectionController(p.toolkit.BaseController):
             if request.method == 'POST':
                 self._action('group_delete')(context, {'id': id})
                 h.flash_notice(_('Collection has been deleted.'))
-                self._redirect_to_this_controller(action='search_collection')
+                self._redirect_to_this_controller(action='index')
             c.group_dict = self._action('group_show')(context, {'id': id})
         except NotAuthorized:
             abort(403, _('Unauthorized to delete collection %s') % '')
@@ -475,7 +325,6 @@ class CollectionController(p.toolkit.BaseController):
             abort(404, _('Collection not found'))
         return render('collection/confirm_delete.html',
                       extra_vars={'group_type': group_type})
-
 
     def dataset_collection_list(self, id):
         '''
@@ -539,26 +388,3 @@ class CollectionController(p.toolkit.BaseController):
 
         return render('package/collection_list.html',
                       {'dataset_type': dataset_type})
-
-    def about(self, id):
-        group_type = self._ensure_controller_matches_group_type(id)
-        context = {'model': model, 'session': model.Session,
-                   'user': c.user}
-        c.group_dict = self._get_group_dict(id)
-        group_type = c.group_dict['type']
-        self._setup_template_variables(context, {'id': id},
-                                       group_type=group_type)
-        return render(self._about_template(),
-                      extra_vars={'group_type': group_type})
-
-    def _get_group_dict(self, id):
-        ''' returns the result of group_show action or aborts if there is a
-        problem '''
-        context = {'model': model, 'session': model.Session,
-                   'user': c.user,
-                   'for_view': True}
-        try:
-            return self._action('group_show')(
-                context, {'id': id, 'include_datasets': False})
-        except (NotFound, NotAuthorized):
-            abort(404, _('Collection not found'))

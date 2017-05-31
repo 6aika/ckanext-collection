@@ -36,7 +36,7 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
 
     def before_map(self, map):
         with SubMapper(map, controller='ckanext.collection.controller:CollectionController') as m:
-            m.connect('/collection', action='search_collection')
+            m.connect('/collection', action='index')
 
             m.connect('/collection/new', action='new')
 
