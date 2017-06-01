@@ -39,9 +39,6 @@ Example:
             <span>{{ _('View {name}').format(name=collection.display_name) }}</span>
           </a>
         {% endblock %}
-        {% if c.userobj.sysadmin %}
-          <input name="collection_remove.{{ collection.id }}" value="{{ _('Remove') }}" type="submit" class="btn btn-danger btn-small media-edit" title="{{ _('Remove dataset from this collection') }}"/>
-        {% endif %}
       </div>
     {% endblock %}
   </li>

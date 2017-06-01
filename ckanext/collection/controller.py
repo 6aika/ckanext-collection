@@ -58,7 +58,7 @@ class CollectionController(GroupController):
     def _read_template(self, group_type):
         return 'collection/read.html'
 
-    def _edit_template(self):
+    def _edit_template(self, group_type):
         return 'collection/edit.html'
 
     def index(self):
