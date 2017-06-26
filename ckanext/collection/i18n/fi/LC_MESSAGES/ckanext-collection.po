@@ -26,11 +26,11 @@ msgstr ""
 #: ckanext/collection/controller.py:509 ckanext/collection/controller.py:524
 #: ckanext/collection/controller.py:566
 msgid "Collection not found"
-msgstr "Aineistokokonaisuutta ei löytynyt"
+msgstr "Datakokoelmaa ei löytynyt"
 
 #: ckanext/collection/controller.py:98
 msgid "Incorrect group type"
-msgstr "Virheellinen ryhmän tyyppi"
+msgstr "Virheellinen datakokoelman tyyppi"
 
 #: ckanext/collection/controller.py:116
 msgid "Not authorized to see this page"
@@ -52,7 +52,7 @@ msgstr "Organisaatiot"
 #: ckanext/collection/templates/package/collection_list.html:5
 #: ckanext/collection/templates/package/read_base.html:7
 msgid "Collections"
-msgstr "Aineistokokonaisuudet"
+msgstr "Datakokoelmat"
 
 #: ckanext/collection/controller.py:255
 msgid "Tags"
@@ -60,7 +60,7 @@ msgstr "Avainsanat"
 
 #: ckanext/collection/controller.py:256
 msgid "Formats"
-msgstr "Muodot"
+msgstr "Formaatit"
 
 #: ckanext/collection/controller.py:257
 msgid "Licenses"
@@ -68,7 +68,7 @@ msgstr "Lisenssit"
 
 #: ckanext/collection/controller.py:343
 msgid "Unauthorized to create a collection"
-msgstr "Ei oikeuksia luoda aineistokokonaisuutta"
+msgstr "Ei oikeuksia luoda datakokoelmaa"
 
 #: ckanext/collection/controller.py:396
 #, python-format
@@ -86,7 +86,7 @@ msgstr "Ei oikeuksia poistaa kategoriaa %s"
 
 #: ckanext/collection/controller.py:469
 msgid "Collection has been deleted."
-msgstr "Aineistokokonaisuus on poistettu"
+msgstr "Datakokoelma on poistettu"
 
 #: ckanext/collection/controller.py:473
 #, python-format
@@ -103,11 +103,11 @@ msgstr "Tietoja"
 
 #: ckanext/collection/templates/collection/base_form_page.html:7
 msgid "Add a Collection"
-msgstr "Lisää aineistokokonaisuus"
+msgstr "Lisää datakokoelma"
 
 #: ckanext/collection/templates/collection/base_form_page.html:11
 msgid "Collection Form"
-msgstr "Aineistokokonaisuuslomake"
+msgstr "Datakokoelmalomake"
 
 #: ckanext/collection/templates/collection/confirm_delete.html:3
 #: ckanext/collection/templates/collection/confirm_delete.html:15
@@ -116,7 +116,7 @@ msgstr "Vahvista poisto"
 
 #: ckanext/collection/templates/collection/confirm_delete.html:11
 msgid "Are you sure you want to delete collection - {name}?"
-msgstr "Haluatko varmasti poistaa aineistokokonaisuuden - {name}?"
+msgstr "Haluatko varmasti poistaa datakokoelman - {name}?"
 
 #: ckanext/collection/templates/collection/confirm_delete.html:14
 msgid "Cancel"
@@ -124,18 +124,18 @@ msgstr "Peruuta"
 
 #: ckanext/collection/templates/collection/edit.html:4
 msgid "Collection"
-msgstr "Aineistokokonaisuus"
+msgstr "Datakokoelma"
 
 #: ckanext/collection/templates/collection/edit.html:7
 #: ckanext/collection/templates/collection/edit_base.html:3
 #: ckanext/collection/templates/collection/edit_base.html:11
 #: ckanext/collection/templates/collection/read_base.html:12
 msgid "Manage"
-msgstr "Hallitse"
+msgstr "Muokkaa"
 
 #: ckanext/collection/templates/collection/edit.html:12
 msgid "Edit Collection"
-msgstr "Muokkaa aineistokokonaisuutta"
+msgstr "Muokkaa datakokoelmaa"
 
 #: ckanext/collection/templates/collection/edit_base.html:16
 msgid "View"
@@ -143,11 +143,11 @@ msgstr "Näytä"
 
 #: ckanext/collection/templates/collection/index.html:13
 msgid "Add Collection"
-msgstr "Lisää aineistokokonaisuus"
+msgstr "Lisää datakokoelma"
 
 #: ckanext/collection/templates/collection/index.html:20
 msgid "Search collections..."
-msgstr "Etsi aineistokokonaisuuksista..."
+msgstr "Hae datakokoelmista..."
 
 #: ckanext/collection/templates/collection/index.html:20
 #: ckanext/collection/templates/collection/read.html:22
@@ -161,7 +161,7 @@ msgstr "Nimen mukaan laskevasti"
 
 #: ckanext/collection/templates/collection/index.html:29
 msgid "There are currently no collections for this site"
-msgstr "Sivustolla ei ole yhtään aineistokokonaisuutta"
+msgstr "Sivustolla ei ole yhtään datakokoelmaa"
 
 #: ckanext/collection/templates/collection/index.html:31
 msgid "How about creating one?"
@@ -171,15 +171,15 @@ msgstr "Haluatko luoda yhden?"
 #: ckanext/collection/templates/collection/new.html:5
 #: ckanext/collection/templates/collection/new.html:7
 msgid "Create a Collection"
-msgstr "Luo aineistokokonaisuus"
+msgstr "Luo datakokoelma"
 
 #: ckanext/collection/templates/collection/new_collection_form.html:17
 msgid "Update Collection"
-msgstr "Päivitä aineistokokonaisuus"
+msgstr "Päivitä datakokoelma"
 
 #: ckanext/collection/templates/collection/new_collection_form.html:19
 msgid "Create Collection"
-msgstr "Luo aineistokokonaisuus"
+msgstr "Luo datakokoelma"
 
 #: ckanext/collection/templates/collection/read.html:21
 msgid "Relevance"
@@ -195,7 +195,7 @@ msgstr "Suositut"
 
 #: ckanext/collection/templates/collection/read.html:27
 msgid "Search datasets..."
-msgstr "Etsi tietoaineistoista..."
+msgstr "Hae datakokoelmista..."
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:10
 msgid "Name"
@@ -203,7 +203,7 @@ msgstr "Nimi"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:10
 msgid "My Collection"
-msgstr "Minun aineistokokonaisuuteni"
+msgstr "Minun datakokoelmani"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:18
 msgid "URL"
@@ -211,7 +211,7 @@ msgstr "URL"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:18
 msgid "my-collection"
-msgstr "Minun aineistokokonaisuuteni"
+msgstr "Minun datakokoelmani"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:20
 msgid "Description"
@@ -219,7 +219,7 @@ msgstr "Kuvaus"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:20
 msgid "A little information about my collection..."
-msgstr "Hieman lisätietoja aineistokokonaisuudestani"
+msgstr "Hieman lisätietoja datakokoelmastani"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:35
 #: ckanext/collection/templates/collection/snippets/collection_form.html:48
@@ -228,7 +228,7 @@ msgstr "Muokattu kenttä"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:60
 msgid "Are you sure you want to delete this Collection?"
-msgstr "Haluatko varmasti poistaa tämän aineistokokonaisuuden?"
+msgstr "Haluatko varmasti poistaa tämän datakokoelman?"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:60
 msgid "Delete"
@@ -236,7 +236,7 @@ msgstr "Poista"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:63
 msgid "Save Collection"
-msgstr "Tallenna aineistokokonaisuus"
+msgstr "Tallenna datakokoelma"
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:32
 msgid "{num} Dataset"
@@ -256,7 +256,7 @@ msgstr "Poista"
 #: ckanext/collection/templates/collection/snippets/collection_item.html:38
 #: ckanext/collection/templates/collection/snippets/collection_item.html:46
 msgid "Remove dataset from this collection"
-msgstr "Poista tietoaineisto tästä aineiskokonaisuudesta"
+msgstr "Poista tietoaineisto tästä datakokoelmasta"
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:41
 #: ckanext/collection/templates/collection/snippets/collection_item.html:42
@@ -265,7 +265,7 @@ msgstr "Näytä {name}"
 
 #: ckanext/collection/templates/collection/snippets/feeds.html:3
 msgid "Datasets in collection: {group}"
-msgstr "Tietoaineistoja aineistokokonaisuudessa: {group}"
+msgstr "Tietoaineistoja datakokoelmassa: {group}"
 
 #: ckanext/collection/templates/collection/snippets/feeds.html:4
 msgid "Recent Revision History"
@@ -273,7 +273,7 @@ msgstr "Viimeaikaisin revisiohistoria"
 
 #: ckanext/collection/templates/collection/snippets/helper.html:4
 msgid "What are Collections?"
-msgstr "Mitä aineistokokonaisuudet ovat?"
+msgstr "Mitä datakokoelmat ovat?"
 
 #: ckanext/collection/templates/collection/snippets/helper.html:8
 msgid ""
@@ -282,10 +282,8 @@ msgid ""
 "a particular theme, or as a very simple way to help people find and search "
 "your own published datasets. "
 msgstr ""
-"Voit luoda ja hallinnoida toisiinsa liittyviä tietoaineistoja luomalla "
-"aineistokokonaisuuksia. Voit koota yhteen aineistokokonaisuuteen "
-"tietoaineistoja esimerkiksi projektin, käyttäjäryhmän tai teeman mukaisesti "
-"ja siten helpottaa tietoaineistojen löytymistä."
+"Datakokoelmiin kootaan yhteen samantapaisia datoja esim. projektin, "
+"julkaisun, käyttäjäryhmän tai teeman mukaisesti."
 
 #: ckanext/collection/templates/collection/snippets/info.html:16
 msgid "Deleted"
@@ -297,15 +295,15 @@ msgstr "Tietoaineistot"
 
 #: ckanext/collection/templates/package/collection_list.html:14
 msgid "Associate this collection with this dataset"
-msgstr "Liitä tietoaineisto tähän aineistokokonaisuuteen"
+msgstr "Liitä tietoaineisto tähän datakokoelmaan"
 
 #: ckanext/collection/templates/package/collection_list.html:14
 msgid "Add to collection"
-msgstr "Lisää aineistokokonaisuus"
+msgstr "Lisää datakokoelmaan"
 
 #: ckanext/collection/templates/package/collection_list.html:23
 msgid "There are no collections associated with this dataset"
-msgstr "Tietoaineisto ei kuulu aineistokokonaisuuksiin"
+msgstr "Tietoaineisto ei kuulu datakokoelmaan"
 
 #: ckanext/collection/templates/package/read_base.html:4
 msgid "Dataset"
@@ -317,7 +315,7 @@ msgstr "Kategoriat"
 
 #: ckanext/collection/templates/package/read_base.html:6
 msgid "Activity Stream"
-msgstr "Aktiivisuusvirta"
+msgstr "Muutoshistoria"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:15
 msgid "{number} dataset found for \"{query}\""
@@ -343,41 +341,41 @@ msgstr "Tietoaineistoja ei löytynyt"
 msgid "{number} group found for \"{query}\""
 msgid_plural "{number} groups found for \"{query}\""
 msgstr[0] "Haulla \"{query}\" löytyi {number} kategoria"
-msgstr[1] "Haulla \"{query}\" löytyi {number} kategoriaa"
+msgstr[1] "Haulla \"{query}\" löytyi {number} datakokoelmaa"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:22
 msgid "No groups found for \"{query}\""
-msgstr "Haulla \"{query}\" ei löytynyt kategorioita"
+msgstr "Haulla \"{query}\" ei löytynyt datakokoelmia"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:23
 msgid "{number} group found"
 msgid_plural "{number} groups found"
 msgstr[0] "Löytyi {number} kategoria"
-msgstr[1] "Löytyi {number} kategoriaa"
+msgstr[1] "Löytyi {number} datakokoelmaa"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:24
 msgid "No groups found"
-msgstr "Kategorioita ei löytynyt"
+msgstr "Datakokoelmia ei löytynyt"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:27
 msgid "{number} collection found for \"{query}\""
 msgid_plural "{number} collection found for \"{query}\""
 msgstr[0] "Haulla \"{query}\" löytyi {number} aineistokokonaisuus"
-msgstr[1] "Haulla \"{query}\" löytyi {number} aineistokokonaisuutta"
+msgstr[1] "Haulla \"{query}\" löytyi {number} datakokoelmaa"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:28
 msgid "No collections found for \"{query}\""
-msgstr "Yhtään aineistokokonaisuutta ei löytynyt haulle \"{query}\""
+msgstr "Yhtään datakokoelmaa ei löytynyt haulle \"{query}\""
 
 #: ckanext/collection/templates/snippets/search_result_text.html:29
 msgid "{number} collection found"
 msgid_plural "{number} collection found"
 msgstr[0] "Löytyi {number} aineistokokonaisuus "
-msgstr[1] "Löytyi {number} aineistokokonaisuutta"
+msgstr[1] "Löytyi {number} datakokoelmaa"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:30
 msgid "No collections found"
-msgstr "Aineistokokonaisuuksia ei löytynyt"
+msgstr "Datakokoelmia ei löytynyt"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:33
 msgid "{number} organization found for \"{query}\""
