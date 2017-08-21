@@ -11,7 +11,7 @@
         {% endblock %}
         {% block heading %}
           <h1 class="heading">
-            {{ collection.display_name }}
+            {{ h.get_translated(collection, 'title') }}
             {% if collection.state == 'deleted' %}
               [{{ _('Deleted') }}]
             {% endif %}

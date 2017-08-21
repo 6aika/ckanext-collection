@@ -38,16 +38,22 @@ log = logging.getLogger(__name__)
 
 class CollectionController(GroupController):
 
-    group_types = ['collection']
+    #group_types = ['collection']
 
     def _guess_group_type(self, expecting_name=False):
         return 'collection'
 
     def _group_form(self, group_type=None):
-        return 'collection/new_collection_form.html'
+        if group_type == 'collection':
+            return 'collection/new_collection_form.html'
+        else:
+            return super(CollectionController, self)._group_form(group_type)
 
     def _new_template(self, group_type):
-        return 'collection/new.html'
+        if group_type == 'collection':
+            return 'collection/new.html'
+        else:
+            return super(CollectionController, self)._new_template(group_type)
 
     def _index_template(self):
         return 'collection/index.html'
@@ -388,3 +394,8 @@ class CollectionController(GroupController):
 
         return render('package/collection_list.html',
                       {'dataset_type': dataset_type})
+
+
+    def _setup_template_variables(self, context, data_dict, group_type=None):
+        c.group_type = group_type
+        return data_dict

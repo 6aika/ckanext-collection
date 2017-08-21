@@ -4,7 +4,7 @@
 
 {% block breadcrumb_content %}
   <li>{% link_for _('Collections'), controller='ckanext.collection.controller:CollectionController', action='index' %}</li>
-  <li class="active">{% link_for c.group_dict.display_name|truncate(35), controller='ckanext.collection.controller:CollectionController', action='read', id=c.group_dict.name %}</li>
+  <li class="active">{% link_for h.get_translated(c.group_dict, 'title')|truncate(35), controller='ckanext.collection.controller:CollectionController', action='read', id=c.group_dict.name %}</li>
 {% endblock %}
 
 {% block content_action %}
