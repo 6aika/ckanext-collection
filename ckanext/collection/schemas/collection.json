@@ -13,7 +13,7 @@
         "en"
       ],
       "form_placeholder": "My Collection",
-      "required": true
+      "only_default_lang_required": true
     },
     {
       "field_name": "name",

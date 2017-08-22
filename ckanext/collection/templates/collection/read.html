@@ -1,12 +1,12 @@
 {% extends "collection/read_base.html" %}
 
-{% block subtitle %}{{ h.get_translated(c.group_dict, 'title') }}{% endblock %}
+{% block subtitle %}{{ h.get_translated_or_default_locale(c.group_dict, 'title') }}{% endblock %}
 
 {% block primary_content_inner %}
-  <h1 class="page-heading">{% block page_heading %}{{ h.get_translated(c.group_dict, 'title') }}{% endblock %}</h1>
+  <h1 class="page-heading">{% block page_heading %}{{ h.get_translated_or_default_locale(c.group_dict, 'title') }}{% endblock %}</h1>
   {% block group_description %}
     {% if c.group_dict.description %}
-      {{ h.render_markdown(h.get_translated(c.group_dict, 'description')) }}
+      {{ h.render_markdown(h.get_translated_or_default_locale(c.group_dict, 'description')) }}
     {% endif %}
   {% endblock %}
   {% block groups_search_form %}

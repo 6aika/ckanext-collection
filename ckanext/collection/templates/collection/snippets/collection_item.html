@@ -20,11 +20,11 @@ Example:
       {% endblock %}
       <div class="item-content">
         {% block title %}
-          <h3 class="media-heading">{{ collection.display_name }}</h3>
+          <h3 class="media-heading">{{ h.get_translated_or_default_locale(collection, 'title') }}</h3>
         {% endblock %}
         {% block description %}
           {% if collection.description %}
-            <p>{{ h.markdown_extract(collection.description, extract_length=80) }}</p>
+            <p>{{ h.markdown_extract(h.get_translated_or_default_locale(collection, 'description'), extract_length=80) }}</p>
           {% endif %}
         {% endblock %}
         {% block datasets %}
