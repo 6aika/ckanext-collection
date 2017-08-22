@@ -195,7 +195,7 @@ msgstr "Suositut"
 
 #: ckanext/collection/templates/collection/read.html:27
 msgid "Search datasets..."
-msgstr "Hae datakokoelmista..."
+msgstr "Hae tietoaineistoista..."
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:10
 msgid "Name"
