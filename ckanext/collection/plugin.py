@@ -3,7 +3,7 @@ import ckan.plugins.toolkit as toolkit
 from routes.mapper import SubMapper
 from ckan.lib.plugins import DefaultTranslation
 import json
-from ckanext.collection.logic import action, auth
+from ckanext.collection.logic import action
 
 import logging
 log = logging.getLogger(__name__)
@@ -69,6 +69,6 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
 
     def get_actions(self):
         return {
-            'group_list_authz': auth.group_list_authz,
+            'group_list_authz': action.group_list_authz,
             'api_collection_show': action.api_collection_show
         }

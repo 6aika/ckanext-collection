@@ -12,7 +12,7 @@ from ckan.model.package import Package
 from ckan.lib.dictization.model_dictize import group_list_dictize
 from ckan.controllers.group import GroupController
 
-from ckan.common import c, OrderedDict, g, request, _
+from ckan.common import c, OrderedDict, g, request, _, config
 from urllib import urlencode
 
 h = base.h
@@ -226,7 +226,7 @@ class CollectionController(GroupController):
                                     'res_format': _('Formats'),
                                     'license_id': _('Licenses')}
 
-            for facet in g.facets:
+            for facet in h.facets():
                 if facet in default_facet_titles:
                     facets[facet] = default_facet_titles[facet]
                 else:
@@ -266,14 +266,12 @@ class CollectionController(GroupController):
 
             c.group_dict['package_count'] = query['count']
             c.facets = query['facets']
-            maintain.deprecate_context_item('facets',
-                                            'Use `c.search_facets` instead.')
 
             c.search_facets = query['search_facets']
             c.search_facets_limits = {}
             for facet in c.facets.keys():
                 limit = int(request.params.get('_%s_limit' % facet,
-                                               g.facets_default_number))
+                                               int(config.get('search.facets.default', 10))))
                 c.search_facets_limits[facet] = limit
             c.page.items = query['results']
 
@@ -341,7 +339,8 @@ class CollectionController(GroupController):
         context = {'model': model, 'session': model.Session,
                    'user': c.user, 'for_view': True,
                    'auth_user_obj': c.userobj, 'use_cache': False}
-        data_dict = {'id': id, 'type': 'collection', 'all_fields': True}
+        data_dict = {'id': id, 'type': 'collection', 'all_fields': True, 'include_extras': True}
+
         c.collection_list = []
         try:
             c.pkg_dict = get_action('package_show')(context, data_dict)
@@ -380,7 +379,7 @@ class CollectionController(GroupController):
                     abort(404, _('Collection not found'))
             h.redirect_to(controller='ckanext.collection.controller:CollectionController', action='dataset_collection_list', id=id)
 
-        context['is_member'] = True
+        context['am_member'] = True
 
         # Every collection will get listed here instead of using group_list_authz as implemented in CKAN core groups,
         # since group_list_authz does not support group type
@@ -389,9 +388,19 @@ class CollectionController(GroupController):
         pkg_group_ids = set(group['id'] for group
                             in c.collection_list)
 
-        c.collection_dropdown = [[group['id'], group['display_name']]
+        context['am_member'] = True
+        users_collections = get_action('group_list_authz')(context, data_dict)
+        user_collection_ids = set(group['id'] for group
+                             in users_collections)
+
+        c.collection_list = [collection for collection in collections if collection['id'] in pkg_group_ids]
+
+        c.collection_dropdown = [[group['id'], group]
                                  for group in collections if
                                  group['id'] not in pkg_group_ids]
+
+        for collection in c.collection_list:
+            collection['user_member'] = (collection['id'] in user_collection_ids)
 
         return render('package/collection_list.html',
                       {'dataset_type': dataset_type})
