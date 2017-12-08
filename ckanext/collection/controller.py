@@ -294,7 +294,7 @@ class CollectionController(GroupController):
             context['message'] = data_dict.get('log_message', '')
             data_dict['users'] = [{'name': c.user, 'capacity': 'admin'}]
             group = self._action('group_create')(context, data_dict)
-            h.redirect_to(str('/collection/' + group['name']))
+            h.redirect_to(controller="ckanext.collection.controller:CollectionController", action='read', id=group['name'])
         except (NotFound, NotAuthorized), e:
             abort(404, _('Collection not found'))
         except dict_fns.DataError:
