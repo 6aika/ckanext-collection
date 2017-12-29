@@ -3,7 +3,9 @@ import ckan.plugins.toolkit as toolkit
 from routes.mapper import SubMapper
 from ckan.lib.plugins import DefaultTranslation
 import json
-from ckanext.collection.logic import action, auth
+from ckanext.collection.logic import action
+from ckan.logic import get_action
+
 
 import logging
 log = logging.getLogger(__name__)
@@ -65,10 +67,36 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
 
         return data_dict
 
+    def after_search(self, search_results, search_params):
+        if search_results['search_facets'].get('collections'):
+            collections_with_extras = []
+            for result in search_results['results']:
+                for collection in result.get('groups', []):
+                    context = {'for_view': True, 'with_private': False}
+
+                    data_dict = {
+                        'all_fields': True,
+                        'include_extras': True,
+                        'type': 'collection',
+                        'id': collection['name']
+                    }
+                    collections_with_extras.append(get_action('group_show')(context, data_dict))
+
+            for i, facet in enumerate(search_results['search_facets']['collections'].get('items', [])):
+                for collection in collections_with_extras:
+                    if facet['name'] == collection['name']:
+                        search_results['search_facets']['collections']['items'][i]['title_translated'] = collection.get('title_translated')
+                        if not collection.get('title_translated').get('en'):
+                            search_results['search_facets']['collections']['items'][i]['title_translated']['en'] = collection.get('title')
+                        if not collection.get('title_translated').get('sv'):
+                            search_results['search_facets']['collections']['items'][i]['title_translated']['sv'] = collection.get('title')
+
+        return search_results
+
     # IActions
 
     def get_actions(self):
         return {
-            'group_list_authz': auth.group_list_authz,
+            'group_list_authz': action.group_list_authz,
             'api_collection_show': action.api_collection_show
         }
