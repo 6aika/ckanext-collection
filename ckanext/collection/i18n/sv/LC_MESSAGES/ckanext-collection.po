@@ -11,6 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-04-13 10:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Joonas Dukpa, 2018\n"
 "Language-Team: Swedish (https://www.transifex.com/6aika-dataportal/teams/68018/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -25,19 +26,19 @@ msgstr ""
 #: ckanext/collection/controller.py:509 ckanext/collection/controller.py:524
 #: ckanext/collection/controller.py:566
 msgid "Collection not found"
-msgstr ""
+msgstr "Datainsamlingar hittades inte"
 
 #: ckanext/collection/controller.py:98
 msgid "Incorrect group type"
-msgstr ""
+msgstr "Felaktig grupptyp"
 
 #: ckanext/collection/controller.py:116
 msgid "Not authorized to see this page"
-msgstr ""
+msgstr "Du är inte behörig att se denna sida"
 
 #: ckanext/collection/controller.py:253
 msgid "Organizations"
-msgstr ""
+msgstr "Organisationer"
 
 #: ckanext/collection/controller.py:254
 #: ckanext/collection/templates/collection/base_form_page.html:6
@@ -51,228 +52,228 @@ msgstr ""
 #: ckanext/collection/templates/package/collection_list.html:5
 #: ckanext/collection/templates/package/read_base.html:7
 msgid "Collections"
-msgstr ""
+msgstr "Datainsamlingar"
 
 #: ckanext/collection/controller.py:255
 msgid "Tags"
-msgstr ""
+msgstr "Taggar"
 
 #: ckanext/collection/controller.py:256
 msgid "Formats"
-msgstr ""
+msgstr "Format"
 
 #: ckanext/collection/controller.py:257
 msgid "Licenses"
-msgstr ""
+msgstr "Licenser"
 
 #: ckanext/collection/controller.py:343
 msgid "Unauthorized to create a collection"
-msgstr ""
+msgstr "Oberhörig för att skapa datainsamlingar"
 
 #: ckanext/collection/controller.py:396
 #, python-format
 msgid "User %r not authorized to edit %s"
-msgstr ""
+msgstr "Användare %r har inte behörighet att redigera %s"
 
 #: ckanext/collection/controller.py:423 ckanext/collection/controller.py:445
 msgid "Integrity Error"
-msgstr ""
+msgstr "Integritetsfel"
 
 #: ckanext/collection/controller.py:464
 #, python-format
 msgid "Unauthorized to delete group %s"
-msgstr ""
+msgstr "Obehörig att radera datainsamlingar %s"
 
 #: ckanext/collection/controller.py:469
 msgid "Collection has been deleted."
-msgstr ""
+msgstr "Datainsamlingar har raderats."
 
 #: ckanext/collection/controller.py:473
 #, python-format
 msgid "Unauthorized to delete collection %s"
-msgstr ""
+msgstr "Obehörig att radera datainsamlingar %s"
 
 #: ckanext/collection/controller.py:496
 msgid "Dataset not found"
-msgstr ""
+msgstr "Dataset hittades inte"
 
 #: ckanext/collection/templates/collection/about.html:3
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #: ckanext/collection/templates/collection/base_form_page.html:7
 msgid "Add a Collection"
-msgstr ""
+msgstr "Lägg till datainsamlingar"
 
 #: ckanext/collection/templates/collection/base_form_page.html:11
 msgid "Collection Form"
-msgstr ""
+msgstr "Datainsamlingar formulär"
 
 #: ckanext/collection/templates/collection/confirm_delete.html:3
 #: ckanext/collection/templates/collection/confirm_delete.html:15
 msgid "Confirm Delete"
-msgstr ""
+msgstr "Bekräfta radering"
 
 #: ckanext/collection/templates/collection/confirm_delete.html:11
 msgid "Are you sure you want to delete collection - {name}?"
-msgstr ""
+msgstr "Vill du verkligen radera datainsamlingar - {name}?"
 
 #: ckanext/collection/templates/collection/confirm_delete.html:14
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: ckanext/collection/templates/collection/edit.html:4
 msgid "Collection"
-msgstr ""
+msgstr "Datainsamlingar"
 
 #: ckanext/collection/templates/collection/edit.html:7
 #: ckanext/collection/templates/collection/edit_base.html:3
 #: ckanext/collection/templates/collection/edit_base.html:11
 #: ckanext/collection/templates/collection/read_base.html:12
 msgid "Manage"
-msgstr ""
+msgstr "Hantera"
 
 #: ckanext/collection/templates/collection/edit.html:12
 msgid "Edit Collection"
-msgstr ""
+msgstr "Redigera datainsamlingar"
 
 #: ckanext/collection/templates/collection/edit_base.html:16
 msgid "View"
-msgstr ""
+msgstr "Visa"
 
 #: ckanext/collection/templates/collection/index.html:13
 msgid "Add Collection"
-msgstr ""
+msgstr "Lägg till datainsamlingar"
 
 #: ckanext/collection/templates/collection/index.html:20
 msgid "Search collections..."
-msgstr ""
+msgstr "Sök datainsamlingar..."
 
 #: ckanext/collection/templates/collection/index.html:20
 #: ckanext/collection/templates/collection/read.html:22
 msgid "Name Ascending"
-msgstr ""
+msgstr "Namn, stigande"
 
 #: ckanext/collection/templates/collection/index.html:20
 #: ckanext/collection/templates/collection/read.html:23
 msgid "Name Descending"
-msgstr ""
+msgstr "Namn, fallande"
 
 #: ckanext/collection/templates/collection/index.html:29
 msgid "There are currently no collections for this site"
-msgstr ""
+msgstr "Det finns för närvarande inga datainsamlingar för denna webbplats"
 
 #: ckanext/collection/templates/collection/index.html:31
 msgid "How about creating one?"
-msgstr ""
+msgstr "Vill du skapa en?"
 
 #: ckanext/collection/templates/collection/new.html:3
 #: ckanext/collection/templates/collection/new.html:5
 #: ckanext/collection/templates/collection/new.html:7
 msgid "Create a Collection"
-msgstr ""
+msgstr "Skapa en datainsamlingar"
 
 #: ckanext/collection/templates/collection/new_collection_form.html:17
 msgid "Update Collection"
-msgstr ""
+msgstr "Uppdatera datainsamlingar"
 
 #: ckanext/collection/templates/collection/new_collection_form.html:19
 msgid "Create Collection"
-msgstr ""
+msgstr "Skapa en datainsamlingar"
 
 #: ckanext/collection/templates/collection/read.html:21
 msgid "Relevance"
-msgstr ""
+msgstr "Relevans"
 
 #: ckanext/collection/templates/collection/read.html:24
 msgid "Last Modified"
-msgstr ""
+msgstr "Senast ändrad"
 
 #: ckanext/collection/templates/collection/read.html:25
 msgid "Popular"
-msgstr ""
+msgstr "Populära"
 
 #: ckanext/collection/templates/collection/read.html:27
 msgid "Search datasets..."
-msgstr ""
+msgstr "Sök dataset..."
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:10
 msgid "Name"
-msgstr ""
+msgstr "Namn"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:10
 msgid "My Collection"
-msgstr ""
+msgstr "Min datainsamlingar"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:18
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:18
 msgid "my-collection"
-msgstr ""
+msgstr "mina-datainsamling"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:20
 msgid "Description"
-msgstr ""
+msgstr "Beskrivning"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:20
 msgid "A little information about my collection..."
-msgstr ""
+msgstr "Lite information om min datainsamling..."
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:35
 #: ckanext/collection/templates/collection/snippets/collection_form.html:48
 msgid "Custom Field"
-msgstr ""
+msgstr "Eget fält"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:60
 msgid "Are you sure you want to delete this Collection?"
-msgstr ""
+msgstr "Vill du verkligen radera denna datainsamling?"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:60
 msgid "Delete"
-msgstr ""
+msgstr "Radera"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:63
 msgid "Save Collection"
-msgstr ""
+msgstr "Spara insamling"
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:32
 msgid "{num} Dataset"
 msgid_plural "{num} Datasets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{num} dataset"
+msgstr[1] "{num} dataset"
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:34
 msgid "0 Datasets"
-msgstr ""
+msgstr "0 dataset"
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:38
 #: ckanext/collection/templates/collection/snippets/collection_item.html:46
 msgid "Remove"
-msgstr ""
+msgstr "Ta bort"
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:38
 #: ckanext/collection/templates/collection/snippets/collection_item.html:46
 msgid "Remove dataset from this collection"
-msgstr ""
+msgstr "Ta bort dataset från denna datainsamling"
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:41
 #: ckanext/collection/templates/collection/snippets/collection_item.html:42
 msgid "View {name}"
-msgstr ""
+msgstr "Visa {name}"
 
 #: ckanext/collection/templates/collection/snippets/feeds.html:3
 msgid "Datasets in collection: {group}"
-msgstr ""
+msgstr "Dataset i insamling: {group}"
 
 #: ckanext/collection/templates/collection/snippets/feeds.html:4
 msgid "Recent Revision History"
-msgstr ""
+msgstr "Färsk versionshistorik"
 
 #: ckanext/collection/templates/collection/snippets/helper.html:4
 msgid "What are Collections?"
-msgstr ""
+msgstr "Vad är datainsamlingar?"
 
 #: ckanext/collection/templates/collection/snippets/helper.html:8
 msgid ""
@@ -281,115 +282,118 @@ msgid ""
 "a particular theme, or as a very simple way to help people find and search "
 "your own published datasets. "
 msgstr ""
+"Datainsamlingar samlar in liknande data, t.ex. enligt ett tema, projekt, "
+"publikation eller en användargrupp. En data kan tillhöra flera "
+"datainsamlingar."
 
 #: ckanext/collection/templates/collection/snippets/info.html:16
 msgid "Deleted"
-msgstr ""
+msgstr "Raderad"
 
 #: ckanext/collection/templates/collection/snippets/info.html:24
 msgid "Datasets"
-msgstr ""
+msgstr "Dataset"
 
 #: ckanext/collection/templates/package/collection_list.html:14
 msgid "Associate this collection with this dataset"
-msgstr ""
+msgstr "Koppla denna datainsalmingar till detta dataset"
 
 #: ckanext/collection/templates/package/collection_list.html:14
 msgid "Add to collection"
-msgstr ""
+msgstr "Lägg till datainsamling"
 
 #: ckanext/collection/templates/package/collection_list.html:23
 msgid "There are no collections associated with this dataset"
-msgstr ""
+msgstr "Det finns inga datainsamlingar kopplade till detta dataset"
 
 #: ckanext/collection/templates/package/read_base.html:4
 msgid "Dataset"
-msgstr ""
+msgstr "Dataset"
 
 #: ckanext/collection/templates/package/read_base.html:5
 msgid "Groups"
-msgstr ""
+msgstr "Grupper"
 
 #: ckanext/collection/templates/package/read_base.html:6
 msgid "Activity Stream"
-msgstr ""
+msgstr "Aktivitetsflöde"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:15
 msgid "{number} dataset found for \"{query}\""
 msgid_plural "{number} datasets found for \"{query}\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{number} dataset hittades för \"{query}\""
+msgstr[1] "{number} dataset hittades för \"{query}\""
 
 #: ckanext/collection/templates/snippets/search_result_text.html:16
 msgid "No datasets found for \"{query}\""
-msgstr ""
+msgstr "Hittade inga dataset för \"{query}\""
 
 #: ckanext/collection/templates/snippets/search_result_text.html:17
 msgid "{number} dataset found"
 msgid_plural "{number} datasets found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{number} dataset hittades"
+msgstr[1] "{number} dataset hittades"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:18
 msgid "No datasets found"
-msgstr ""
+msgstr "Inga dataset hittades"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:21
 msgid "{number} group found for \"{query}\""
 msgid_plural "{number} groups found for \"{query}\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{number} datainsamling hittades för \"{query}\""
+msgstr[1] "{number} datainsamlingar hittades för \"{query}\""
 
 #: ckanext/collection/templates/snippets/search_result_text.html:22
 msgid "No groups found for \"{query}\""
-msgstr ""
+msgstr "Hittade inga datainsamlingar för \"{query}\""
 
 #: ckanext/collection/templates/snippets/search_result_text.html:23
 msgid "{number} group found"
 msgid_plural "{number} groups found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{number} datainsamling hittades"
+msgstr[1] "{number} datainsamlingar hittades"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:24
 msgid "No groups found"
-msgstr ""
+msgstr "Inga datainsamlingar hittades"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:27
 msgid "{number} collection found for \"{query}\""
 msgid_plural "{number} collection found for \"{query}\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{number} datainsamling hittades för \"{query}\""
+msgstr[1] "{number} datainsamlingar hittades för \"{query}\""
 
 #: ckanext/collection/templates/snippets/search_result_text.html:28
 msgid "No collections found for \"{query}\""
-msgstr ""
+msgstr "Hittade inga datainsamlingar för \"{query}\""
 
 #: ckanext/collection/templates/snippets/search_result_text.html:29
 msgid "{number} collection found"
 msgid_plural "{number} collection found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{number} datainsamling hittades"
+msgstr[1] "{number} datainsamlingar hittades"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:30
 msgid "No collections found"
-msgstr ""
+msgstr "Inga datainsamlingar hittades"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:33
 msgid "{number} organization found for \"{query}\""
 msgid_plural "{number} organizations found for \"{query}\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{number} organisation hittades för \"{query}\""
+msgstr[1] "{number} organisationer hittades för \"{query}\""
 
 #: ckanext/collection/templates/snippets/search_result_text.html:34
 msgid "No organizations found for \"{query}\""
-msgstr ""
+msgstr "Inga organisationer matchade \"{query}\""
 
 #: ckanext/collection/templates/snippets/search_result_text.html:35
 msgid "{number} organization found"
 msgid_plural "{number} organizations found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{number} organisation hittades"
+msgstr[1] "{number} organisationer hittades"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:36
 msgid "No organizations found"
-msgstr ""
+msgstr "Inga organisationer hittades"
