@@ -69,18 +69,13 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
 
     def after_search(self, search_results, search_params):
         if search_results['search_facets'].get('collections'):
-            collections_with_extras = []
-            for result in search_results['results']:
-                for collection in result.get('groups', []):
-                    context = {'for_view': True, 'with_private': False}
-
-                    data_dict = {
-                        'all_fields': True,
-                        'include_extras': True,
-                        'type': 'collection',
-                        'id': collection['name']
-                    }
-                    collections_with_extras.append(get_action('group_show')(context, data_dict))
+            context = {'for_view': True, 'with_private': False}
+            data_dict = {
+                'all_fields': True,
+                'include_extras': True,
+                'type': 'collection'
+            }
+            collections_with_extras =get_action('group_list')(context, data_dict)
 
             for i, facet in enumerate(search_results['search_facets']['collections'].get('items', [])):
                 for collection in collections_with_extras:
