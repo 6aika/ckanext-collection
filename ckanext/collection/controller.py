@@ -172,7 +172,9 @@ class CollectionController(GroupController):
         sort_by = request.params.get('sort', None)
 
         def search_url(params):
-            controller = lookup_group_controller(group_type)
+            # ORIGINAL
+            # controller = lookup_group_controller(group_type)
+            controller = 'ckanext.collection.controller:CollectionController'
             action = 'bulk_process' if c.action == 'bulk_process' else 'read'
             url = h.url_for(controller=controller, action=action, id=id)
             params = [(k, v.encode('utf-8') if isinstance(v, basestring)
