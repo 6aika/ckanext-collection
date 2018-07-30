@@ -232,8 +232,11 @@ class CollectionController(GroupController):
                 else:
                     facets[facet] = facet
 
+
             # Facet titles
-            self._update_facet_titles(facets, group_type)
+            for plugin in p.PluginImplementations(p.IFacets):
+                facets = plugin.group_facets(facets, group_type, None)
+
 
             if 'capacity' in facets and (group_type != 'organization' or
                                              not user_member_of_orgs):

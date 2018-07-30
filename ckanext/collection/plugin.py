@@ -5,6 +5,7 @@ from ckan.lib.plugins import DefaultTranslation
 import json
 from ckanext.collection.logic import action
 from ckan.logic import get_action
+from ckan.common import OrderedDict, _
 
 
 import logging
@@ -17,6 +18,7 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
     if toolkit.check_ckan_version(min_version='2.5.0'):
         plugins.implements(plugins.ITranslation, inherit=True)
     plugins.implements(plugins.IActions, inherit=True)
+    plugins.implements(plugins.IFacets, inherit=True)
 
     # IConfigurer
 
@@ -95,3 +97,17 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
             'group_list_authz': action.group_list_authz,
             'api_collection_show': action.api_collection_show
         }
+
+    # IFacets
+
+    def group_facets(self, facets_dict, group_type, package_type):
+
+        if(group_type == 'collection'):
+            facets_dict = OrderedDict()
+            facets_dict.update({'res_format': _('Formats')})
+            facets_dict.update({'vocab_geographical_coverage': _('Geographical Coverage')})
+            facets_dict.update({'groups': _('Groups')})
+            facets_dict.update({'maintainer': _('Maintainer')})
+            facets_dict.update({'collections': _('Collections')})
+
+        return facets_dict
