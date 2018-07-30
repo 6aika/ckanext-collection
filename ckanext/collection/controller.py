@@ -157,7 +157,7 @@ class CollectionController(GroupController):
 
         q = c.q = request.params.get('q', '')
         # Search within group
-        q += ' collections:"%s"' % c.group_dict.get('name')
+        fq = 'collections:"%s"' % c.group_dict.get('name')
 
         c.description_formatted = \
             h.render_markdown(c.group_dict.get('description'))
