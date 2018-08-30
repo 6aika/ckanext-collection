@@ -107,7 +107,7 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
             facets_dict.update({'res_format': _('Formats')})
             facets_dict.update({'vocab_geographical_coverage': _('Geographical Coverage')})
             facets_dict.update({'groups': _('Groups')})
-            facets_dict.update({'maintainer': _('Maintainer')})
+            facets_dict.update({'organization': _('Organizations')})
             facets_dict.update({'collections': _('Collections')})
 
         return facets_dict
