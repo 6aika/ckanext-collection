@@ -1,15 +1,15 @@
 # Translations template for ckanext-collection.
-# Copyright (C) 2017 ORGANIZATION
+# Copyright (C) 2018 ORGANIZATION
 # This file is distributed under the same license as the ckanext-collection
 # project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-collection 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-13 10:23+0000\n"
+"POT-Creation-Date: 2018-09-04 07:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Juha Härkönen <juha.harkonen@ouka.fi>, 2017\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
@@ -20,27 +20,21 @@ msgstr ""
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/collection/controller.py:96 ckanext/collection/controller.py:174
-#: ckanext/collection/controller.py:387 ckanext/collection/controller.py:421
-#: ckanext/collection/controller.py:443 ckanext/collection/controller.py:475
-#: ckanext/collection/controller.py:509 ckanext/collection/controller.py:524
-#: ckanext/collection/controller.py:566
-msgid "Collection not found"
-msgstr ""
-
-#: ckanext/collection/controller.py:98
-msgid "Incorrect group type"
-msgstr ""
-
-#: ckanext/collection/controller.py:116
+#: ckanext/collection/controller.py:85
 msgid "Not authorized to see this page"
 msgstr ""
 
-#: ckanext/collection/controller.py:253
+#: ckanext/collection/controller.py:144 ckanext/collection/controller.py:304
+#: ckanext/collection/controller.py:335 ckanext/collection/controller.py:369
+#: ckanext/collection/controller.py:384
+msgid "Collection not found"
+msgstr ""
+
+#: ckanext/collection/controller.py:225 ckanext/collection/plugin.py:112
 msgid "Organizations"
 msgstr "Organizations"
 
-#: ckanext/collection/controller.py:254
+#: ckanext/collection/controller.py:226 ckanext/collection/plugin.py:113
 #: ckanext/collection/templates/collection/base_form_page.html:6
 #: ckanext/collection/templates/collection/edit_base.html:3
 #: ckanext/collection/templates/collection/edit_base.html:8
@@ -54,47 +48,53 @@ msgstr "Organizations"
 msgid "Collections"
 msgstr ""
 
-#: ckanext/collection/controller.py:255
+#: ckanext/collection/controller.py:227
 msgid "Tags"
 msgstr "Tags"
 
-#: ckanext/collection/controller.py:256
+#: ckanext/collection/controller.py:228 ckanext/collection/plugin.py:109
 msgid "Formats"
 msgstr "Formats"
 
-#: ckanext/collection/controller.py:257
+#: ckanext/collection/controller.py:229
 msgid "Licenses"
 msgstr ""
 
-#: ckanext/collection/controller.py:343
-msgid "Unauthorized to create a collection"
-msgstr ""
-
-#: ckanext/collection/controller.py:396
-#, python-format
-msgid "User %r not authorized to edit %s"
-msgstr ""
-
-#: ckanext/collection/controller.py:423 ckanext/collection/controller.py:445
+#: ckanext/collection/controller.py:306
 msgid "Integrity Error"
 msgstr ""
 
-#: ckanext/collection/controller.py:464
+#: ckanext/collection/controller.py:324
 #, python-format
 msgid "Unauthorized to delete group %s"
 msgstr ""
 
-#: ckanext/collection/controller.py:469
+#: ckanext/collection/controller.py:329
 msgid "Collection has been deleted."
 msgstr ""
 
-#: ckanext/collection/controller.py:473
+#: ckanext/collection/controller.py:333
 #, python-format
 msgid "Unauthorized to delete collection %s"
 msgstr ""
 
-#: ckanext/collection/controller.py:496
+#: ckanext/collection/controller.py:356
 msgid "Dataset not found"
+msgstr ""
+
+#: ckanext/collection/plugin.py:110
+msgid "Geographical Coverage"
+msgstr ""
+
+#: ckanext/collection/plugin.py:111
+#: ckanext/collection/templates/package/read_base.html:5
+msgid "Groups"
+msgstr ""
+
+#: ckanext/collection/templates/admin/config.html:7
+msgid ""
+"Name of the collection containing interfaces (API count will be shown on "
+"homepage)"
 msgstr ""
 
 #: ckanext/collection/templates/collection/about.html:3
@@ -141,29 +141,39 @@ msgstr ""
 msgid "View"
 msgstr ""
 
+#: ckanext/collection/templates/collection/edit_base.html:20
+msgid "Edit"
+msgstr ""
+
+#: ckanext/collection/templates/collection/edit_base.html:21
+msgid "Members"
+msgstr ""
+
 #: ckanext/collection/templates/collection/index.html:13
 msgid "Add Collection"
 msgstr ""
 
-#: ckanext/collection/templates/collection/index.html:20
+#: ckanext/collection/templates/collection/index.html:21
 msgid "Search collections..."
 msgstr ""
 
-#: ckanext/collection/templates/collection/index.html:20
+#: ckanext/collection/templates/collection/index.html:21
 #: ckanext/collection/templates/collection/read.html:22
+#: ckanext/collection/templates/snippets/search_form_without_input.html:30
 msgid "Name Ascending"
 msgstr ""
 
-#: ckanext/collection/templates/collection/index.html:20
+#: ckanext/collection/templates/collection/index.html:21
 #: ckanext/collection/templates/collection/read.html:23
+#: ckanext/collection/templates/snippets/search_form_without_input.html:30
 msgid "Name Descending"
 msgstr ""
 
-#: ckanext/collection/templates/collection/index.html:29
+#: ckanext/collection/templates/collection/index.html:32
 msgid "There are currently no collections for this site"
 msgstr ""
 
-#: ckanext/collection/templates/collection/index.html:31
+#: ckanext/collection/templates/collection/index.html:34
 msgid "How about creating one?"
 msgstr ""
 
@@ -173,13 +183,23 @@ msgstr ""
 msgid "Create a Collection"
 msgstr ""
 
-#: ckanext/collection/templates/collection/new_collection_form.html:17
+#: ckanext/collection/templates/collection/new_collection_form.html:18
 msgid "Update Collection"
 msgstr ""
 
-#: ckanext/collection/templates/collection/new_collection_form.html:19
+#: ckanext/collection/templates/collection/new_collection_form.html:20
 msgid "Create Collection"
 msgstr ""
+
+#: ckanext/collection/templates/collection/new_collection_form.html:26
+#: ckanext/collection/templates/collection/snippets/collection_form.html:60
+msgid "Are you sure you want to delete this Collection?"
+msgstr ""
+
+#: ckanext/collection/templates/collection/new_collection_form.html:27
+#: ckanext/collection/templates/collection/snippets/collection_form.html:60
+msgid "Delete"
+msgstr "Delete"
 
 #: ckanext/collection/templates/collection/read.html:21
 msgid "Relevance"
@@ -194,6 +214,7 @@ msgid "Popular"
 msgstr "Popular"
 
 #: ckanext/collection/templates/collection/read.html:27
+#: ckanext/collection/templates/snippets/search_form_without_input.html:3
 msgid "Search datasets..."
 msgstr ""
 
@@ -226,14 +247,6 @@ msgstr ""
 msgid "Custom Field"
 msgstr ""
 
-#: ckanext/collection/templates/collection/snippets/collection_form.html:60
-msgid "Are you sure you want to delete this Collection?"
-msgstr ""
-
-#: ckanext/collection/templates/collection/snippets/collection_form.html:60
-msgid "Delete"
-msgstr "Delete"
-
 #: ckanext/collection/templates/collection/snippets/collection_form.html:63
 msgid "Save Collection"
 msgstr ""
@@ -249,18 +262,17 @@ msgid "0 Datasets"
 msgstr ""
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:38
-#: ckanext/collection/templates/collection/snippets/collection_item.html:46
+#: ckanext/collection/templates/collection/snippets/collection_item.html:39
+msgid "View {name}"
+msgstr ""
+
+#: ckanext/collection/templates/collection/snippets/collection_item.html:42
+#: ckanext/collection/templates/snippets/search_form_without_input.html:66
 msgid "Remove"
 msgstr "Remove"
 
-#: ckanext/collection/templates/collection/snippets/collection_item.html:38
-#: ckanext/collection/templates/collection/snippets/collection_item.html:46
-msgid "Remove dataset from this collection"
-msgstr ""
-
-#: ckanext/collection/templates/collection/snippets/collection_item.html:41
 #: ckanext/collection/templates/collection/snippets/collection_item.html:42
-msgid "View {name}"
+msgid "Remove dataset from this collection"
 msgstr ""
 
 #: ckanext/collection/templates/collection/snippets/feeds.html:3
@@ -291,11 +303,22 @@ msgstr ""
 msgid "Datasets"
 msgstr "Datasets"
 
-#: ckanext/collection/templates/package/collection_list.html:14
+#: ckanext/collection/templates/group/member_new.html:9
+msgid "What are roles?"
+msgstr ""
+
+#: ckanext/collection/templates/group/member_new.html:12
+msgid ""
+" <p><strong>Admin:</strong> Can edit collection information, as well as "
+"manage members.</p> <p><strong>Member:</strong> Can add/remove datasets from"
+" collections.</p> "
+msgstr ""
+
+#: ckanext/collection/templates/package/collection_list.html:13
 msgid "Associate this collection with this dataset"
 msgstr ""
 
-#: ckanext/collection/templates/package/collection_list.html:14
+#: ckanext/collection/templates/package/collection_list.html:13
 msgid "Add to collection"
 msgstr ""
 
@@ -307,13 +330,24 @@ msgstr ""
 msgid "Dataset"
 msgstr ""
 
-#: ckanext/collection/templates/package/read_base.html:5
-msgid "Groups"
-msgstr ""
-
 #: ckanext/collection/templates/package/read_base.html:6
 msgid "Activity Stream"
 msgstr "Change history"
+
+#: ckanext/collection/templates/snippets/search_form_without_input.html:43
+msgid "Go"
+msgstr ""
+
+#: ckanext/collection/templates/snippets/search_form_without_input.html:77
+msgid ""
+" <p class=\"extra\">Please try another search or change search facets.</p> "
+msgstr ""
+
+#: ckanext/collection/templates/snippets/search_form_without_input.html:83
+msgid ""
+" <p><strong>There was an error while searching.</strong> Please try "
+"again.</p> "
+msgstr ""
 
 #: ckanext/collection/templates/snippets/search_result_text.html:15
 msgid "{number} dataset found for \"{query}\""

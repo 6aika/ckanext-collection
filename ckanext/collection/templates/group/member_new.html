@@ -1,0 +1,19 @@
+{% ckan_extends %}
+
+
+{% block secondary_content %}
+{% snippet "group/snippets/info.html", group=c.group_dict, show_nums=false %}
+<div class="module module-narrow module-shallow">
+    <h2 class="module-heading">
+        <i class="fa fa-lg fa-info-circle"></i>
+        {{ _('What are roles?') }}
+    </h2>
+    <div class="module-content">
+        {% trans %}
+        <p><strong>Admin:</strong> Can edit collection information, as well as
+            manage members.</p>
+        <p><strong>Member:</strong> Can add/remove datasets from collections.</p>
+        {% endtrans %}
+    </div>
+</div>
+{% endblock %}
