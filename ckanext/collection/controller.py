@@ -248,7 +248,7 @@ class CollectionController(GroupController):
 
             data_dict = {
                 'q': q,
-                'fq': '',
+                'fq': fq,
                 'include_private': include_private,
                 'facet.field': facets.keys(),
                 'rows': limit,
