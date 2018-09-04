@@ -398,10 +398,12 @@ class CollectionController(GroupController):
         user_collection_ids = set(group['id'] for group
                              in users_collections)
 
+        cols = [ collection for collection in collections if collection['id'] in user_collection_ids]
+
         c.collection_list = [collection for collection in collections if collection['id'] in pkg_group_ids]
 
         c.collection_dropdown = [[group['id'], group]
-                                 for group in collections if
+                                 for group in cols if
                                  group['id'] not in pkg_group_ids]
 
         for collection in c.collection_list:

@@ -40,17 +40,19 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
 
     def before_map(self, map):
         with SubMapper(map, controller='ckanext.collection.controller:CollectionController') as m:
-            m.connect('/collection', action='index')
+            m.connect('collection.index', '/collection', action='index')
 
-            m.connect('/collection/new', action='new')
+            m.connect('collection.new', '/collection/new', action='new')
 
-            m.connect('/collection/:id', action='read')
+            m.connect('collection.read', '/collection/:id', action='read')
 
-            m.connect('/collection/edit/:id', action='edit')
+            m.connect('collection.members', '/collection/:id/members', action='members')
 
-            m.connect('/collection/delete/:id', action='delete')
+            m.connect('collection.edit', '/collection/edit/:id', action='edit')
 
-            m.connect('/collection/about/:id', action='about')
+            m.connect('collection.delete', '/collection/delete/:id', action='delete')
+
+            m.connect('collection.about', '/collection/about/:id', action='about')
 
             m.connect('dataset_collection_list', '/dataset/collections/{id}',
                       action='dataset_collection_list', ckan_icon='picture')
