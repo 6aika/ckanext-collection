@@ -143,11 +143,11 @@ msgstr "Visa"
 
 #: ckanext/collection/templates/collection/edit_base.html:20
 msgid "Edit"
-msgstr ""
+msgstr "Redigera"
 
 #: ckanext/collection/templates/collection/edit_base.html:21
 msgid "Members"
-msgstr ""
+msgstr "Medlemmar"
 
 #: ckanext/collection/templates/collection/index.html:13
 msgid "Add Collection"
@@ -249,7 +249,7 @@ msgstr "Eget fält"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:63
 msgid "Save Collection"
-msgstr "Spara insamling"
+msgstr "Spara datainsamling"
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:32
 msgid "{num} Dataset"
@@ -281,7 +281,7 @@ msgstr "Dataset i insamling: {group}"
 
 #: ckanext/collection/templates/collection/snippets/feeds.html:4
 msgid "Recent Revision History"
-msgstr "Färsk versionshistorik"
+msgstr "Versionshistorik"
 
 #: ckanext/collection/templates/collection/snippets/helper.html:4
 msgid "What are Collections?"
@@ -342,7 +342,7 @@ msgstr "Aktivitetsflöde"
 
 #: ckanext/collection/templates/snippets/search_form_without_input.html:43
 msgid "Go"
-msgstr ""
+msgstr "Gå"
 
 #: ckanext/collection/templates/snippets/search_form_without_input.html:77
 msgid ""
