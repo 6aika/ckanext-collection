@@ -84,7 +84,7 @@ msgstr "Tietoaineistoa ei löytynyt"
 
 #: ckanext/collection/plugin.py:110
 msgid "Geographical Coverage"
-msgstr "Maantieteellinen kattavuus"
+msgstr "Alue"
 
 #: ckanext/collection/plugin.py:111
 #: ckanext/collection/templates/package/read_base.html:5
