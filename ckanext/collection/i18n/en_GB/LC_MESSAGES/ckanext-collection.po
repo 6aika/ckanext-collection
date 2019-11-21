@@ -4,17 +4,22 @@
 # project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 # 
+# Translators:
+# Juha Härkönen <juha.harkonen@ouka.fi>, 2017
+# Joonas Dukpa, 2019
+# Hami Kekkonen <hami.kekkonen@hel.fi>, 2019
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-collection 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-09-04 07:02+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2018\n"
+"PO-Revision-Date: 2016-12-07 16:28+0000\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2019\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 "Language: en_GB\n"
@@ -22,7 +27,7 @@ msgstr ""
 
 #: ckanext/collection/controller.py:85
 msgid "Not authorized to see this page"
-msgstr ""
+msgstr "Not authorised to see this page"
 
 #: ckanext/collection/controller.py:144 ckanext/collection/controller.py:304
 #: ckanext/collection/controller.py:335 ckanext/collection/controller.py:369
@@ -32,7 +37,7 @@ msgstr ""
 
 #: ckanext/collection/controller.py:225 ckanext/collection/plugin.py:112
 msgid "Organizations"
-msgstr "Organizations"
+msgstr "Organisations"
 
 #: ckanext/collection/controller.py:226 ckanext/collection/plugin.py:113
 #: ckanext/collection/templates/collection/base_form_page.html:6
@@ -67,7 +72,7 @@ msgstr ""
 #: ckanext/collection/controller.py:324
 #, python-format
 msgid "Unauthorized to delete group %s"
-msgstr ""
+msgstr "Unauthorised to delete group %s"
 
 #: ckanext/collection/controller.py:329
 msgid "Collection has been deleted."
@@ -76,7 +81,7 @@ msgstr ""
 #: ckanext/collection/controller.py:333
 #, python-format
 msgid "Unauthorized to delete collection %s"
-msgstr ""
+msgstr "Unauthorised to delete group %s"
 
 #: ckanext/collection/controller.py:356
 msgid "Dataset not found"
@@ -116,7 +121,7 @@ msgstr "Confirm delete"
 
 #: ckanext/collection/templates/collection/confirm_delete.html:11
 msgid "Are you sure you want to delete collection - {name}?"
-msgstr ""
+msgstr "Are you sure you want to delete collection {name}?"
 
 #: ckanext/collection/templates/collection/confirm_delete.html:14
 msgid "Cancel"
@@ -224,7 +229,7 @@ msgstr "Name"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:10
 msgid "My Collection"
-msgstr "My collection"
+msgstr "Name of the collection"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:18
 msgid "URL"
@@ -232,7 +237,7 @@ msgstr ""
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:18
 msgid "my-collection"
-msgstr ""
+msgstr "name-of-the-collection"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:20
 msgid "Description"
@@ -240,7 +245,7 @@ msgstr "Description"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:20
 msgid "A little information about my collection..."
-msgstr ""
+msgstr "A brief description of the collection"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:35
 #: ckanext/collection/templates/collection/snippets/collection_form.html:48
@@ -254,12 +259,12 @@ msgstr "Save collection"
 #: ckanext/collection/templates/collection/snippets/collection_item.html:32
 msgid "{num} Dataset"
 msgid_plural "{num} Datasets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{num} dataset"
+msgstr[1] "{num} datasets"
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:34
 msgid "0 Datasets"
-msgstr ""
+msgstr "0 datasets"
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:38
 #: ckanext/collection/templates/collection/snippets/collection_item.html:39
@@ -394,8 +399,8 @@ msgstr ""
 #: ckanext/collection/templates/snippets/search_result_text.html:27
 msgid "{number} collection found for \"{query}\""
 msgid_plural "{number} collection found for \"{query}\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{number} collection found for \"{query}\""
+msgstr[1] "{number} collections found for \"{query}\""
 
 #: ckanext/collection/templates/snippets/search_result_text.html:28
 msgid "No collections found for \"{query}\""
@@ -404,8 +409,8 @@ msgstr ""
 #: ckanext/collection/templates/snippets/search_result_text.html:29
 msgid "{number} collection found"
 msgid_plural "{number} collection found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{number} collection found"
+msgstr[1] "{number} collections found"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:30
 msgid "No collections found"
@@ -414,19 +419,19 @@ msgstr ""
 #: ckanext/collection/templates/snippets/search_result_text.html:33
 msgid "{number} organization found for \"{query}\""
 msgid_plural "{number} organizations found for \"{query}\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{number} organisation found for \"{query}\""
+msgstr[1] "{number} organisations found for \"{query}\""
 
 #: ckanext/collection/templates/snippets/search_result_text.html:34
 msgid "No organizations found for \"{query}\""
-msgstr ""
+msgstr "No organisations found for \"{query}\""
 
 #: ckanext/collection/templates/snippets/search_result_text.html:35
 msgid "{number} organization found"
 msgid_plural "{number} organizations found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{number} organisation found"
+msgstr[1] "{number} organisations found"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:36
 msgid "No organizations found"
-msgstr ""
+msgstr "No organisations found"
