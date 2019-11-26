@@ -37,8 +37,13 @@
     },
     {
       "field_name": "image_url",
-      "label": "Image URL",
-      "preset": "group_url_upload"
+      "label": "Icon URL",
+      "validators": "ignore_missing unicode remove_whitespace",
+      "form_snippet": "upload.html",
+      "form_placeholder": "http://example.com/my-image.png",
+      "upload_field": "image_upload",
+      "upload_clear": "clear_upload",
+      "upload_label": "Icon URL"
     }
   ]
 }
