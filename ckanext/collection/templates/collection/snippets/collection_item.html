@@ -16,7 +16,7 @@ Example:
   <li class="media-item">
     {% block item_inner %}
       {% block image %}
-        <img src="{{ collection.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ collection.name }}" class="media-image">
+        <img src="{{ collection.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" alt="" class="media-image">
       {% endblock %}
       <div class="item-content">
         {% block title %}
