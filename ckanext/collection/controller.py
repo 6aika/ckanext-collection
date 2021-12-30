@@ -202,6 +202,13 @@ class CollectionController(GroupController):
             return search_url(params)
 
         try:
+            # Set the custom default sort parameter here
+            # Might need a rewrite when ckan is updated
+            if q and not sort_by:
+                sort_by = 'score desc, metadata_modified desc'
+            elif not sort_by:
+                sort_by = 'metadata_created desc'
+
             c.fields = []
             search_extras = {}
             for (param, value) in request.params.items():
