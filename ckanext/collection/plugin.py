@@ -5,11 +5,14 @@ from ckan.lib.plugins import DefaultTranslation
 import json
 from ckanext.collection.logic import action
 from ckan.logic import get_action
-from ckan.common import OrderedDict, _
+from ckan.plugins.toolkit import _
 
+from collections import OrderedDict
 
 import logging
 log = logging.getLogger(__name__)
+
+unicode_safe = toolkit.get_validator('unicode_safe')
 
 class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
@@ -31,7 +34,7 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
         ignore_missing = toolkit.get_validator('ignore_missing')
 
         schema.update({
-            'ckanext.collection.api_collection_name_or_id': [ignore_missing, unicode],
+            'ckanext.collection.api_collection_name_or_id': [ignore_missing, unicode_safe],
         })
 
         return schema

@@ -1,6 +1,6 @@
 import ckan.logic as logic
 import ckan.plugins.toolkit as toolkit
-from pylons import config
+from ckan.plugins.toolkit import config
 
 get_action = logic.get_action
 
