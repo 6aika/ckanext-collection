@@ -35,7 +35,7 @@ Example:
           {% endif %}
         {% endblock %}
         {% block link %}
-          <a href="{{ h.url_for(controller='ckanext.collection.controller:CollectionController', action='read', id=collection.name) }}" title="{{ _('View {name}').format(name=collection.display_name) }}" class="media-view">
+          <a href="{{ h.url_for('collection.read', id=collection.name) }}" title="{{ _('View {name}').format(name=collection.display_name) }}" class="media-view">
             <span>{{ _('View {name}').format(name=collection.display_name) }}</span>
           </a>
         {% if collection.user_member %}

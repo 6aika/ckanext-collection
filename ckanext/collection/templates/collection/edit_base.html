@@ -5,15 +5,15 @@
 {% set collection = c.group_dict %}
 
 {% block breadcrumb_content %}
-  <li>{% link_for _('Collections'), controller='ckanext.collection.controller:CollectionController', action='index' %}</li>
+  <li>{% link_for _('Collections'), named_route='collection.index' %}</li>
   {% block breadcrumb_content_inner %}
-    <li>{% link_for collection.display_name|truncate(35), controller='ckanext.collection.controller:CollectionController', action='read', id=collection.name %}</li>
-    <li class="active">{% link_for _('Manage'), controller='ckanext.collection.controller:CollectionController', action='edit', id=collection.name %}</li>
+    <li>{% link_for collection.display_name|truncate(35), named_route='collection.read', id=collection.name %}</li>
+    <li class="active">{% link_for _('Manage'), named_route='collection.edit', id=collection.name %}</li>
   {% endblock %}
 {% endblock %}
 
 {% block content_action %}
-  {% link_for _('View'), controller='ckanext.collection.controller:CollectionController', action='read', id=c.group_dict.name, class_='btn', icon='eye-open' %}
+  {% link_for _('View'), named_route='collection.read', id=c.group_dict.name, class_='btn', icon='eye-open' %}
 {% endblock %}
 
 {% block content_primary_nav %}

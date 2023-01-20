@@ -3,13 +3,13 @@
 {% block subtitle %}{{ c.group_dict.display_name }} - {{ _('Collections') }}{% endblock %}
 
 {% block breadcrumb_content %}
-  <li>{% link_for _('Collections'), controller='ckanext.collection.controller:CollectionController', action='index' %}</li>
-  <li class="active">{% link_for h.get_translated_or_default_locale(c.group_dict, 'title')|truncate(35), controller='ckanext.collection.controller:CollectionController', action='read', id=c.group_dict.name %}</li>
+  <li>{% link_for _('Collections'), named_route='collection.index' %}</li>
+  <li class="active">{% link_for h.get_translated_or_default_locale(c.group_dict, 'title')|truncate(35), named_route='collection.read', id=c.group_dict.name %}</li>
 {% endblock %}
 
 {% block content_action %}
   {% if h.check_access('group_update', {'id': c.group_dict.id}) %}
-    {% link_for _('Manage'), controller='ckanext.collection.controller:CollectionController', action='edit', id=c.group_dict.name, class_='btn', icon='wrench' %}
+    {% link_for _('Manage'), named_route='collection.edit', id=c.group_dict.name, class_='btn', icon='wrench' %}
   {% endif %}
 {% endblock %}
 

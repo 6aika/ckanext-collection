@@ -1,6 +1,5 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-from routes.mapper import SubMapper
 from ckan.lib.plugins import DefaultTranslation
 import json
 from ckanext.collection.logic import action
@@ -14,9 +13,9 @@ log = logging.getLogger(__name__)
 
 unicode_safe = toolkit.get_validator('unicode_safe')
 
+
 class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
-    plugins.implements(plugins.IRoutes, inherit=True)
     plugins.implements(plugins.IPackageController, inherit=True)
     if toolkit.check_ckan_version(min_version='2.5.0'):
         plugins.implements(plugins.ITranslation, inherit=True)
@@ -38,31 +37,6 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
         })
 
         return schema
-
-    # IRoutes
-
-    def before_map(self, map):
-        with SubMapper(map, controller='ckanext.collection.controller:CollectionController') as m:
-            m.connect('collection.index', '/collection', action='index')
-
-            m.connect('collection.new', '/collection/new', action='new')
-
-            m.connect('collection.read', '/collection/:id', action='read')
-
-            m.connect('collection.members', '/collection/:id/members', action='members')
-
-            m.connect('collection.edit', '/collection/edit/:id', action='edit')
-
-            m.connect('collection.delete', '/collection/delete/:id', action='delete')
-
-            m.connect('collection.about', '/collection/about/:id', action='about')
-
-            m.connect('dataset_collection_list', '/dataset/collections/{id}',
-                      action='dataset_collection_list', ckan_icon='picture')
-
-        map.redirect('/collections', '/collection')
-
-        return map
 
     def before_index(self, data_dict):
         groups = json.loads(data_dict.get('data_dict', {})).get('groups',[])
@@ -107,7 +81,7 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
 
     def group_facets(self, facets_dict, group_type, package_type):
 
-        if(group_type == 'collection'):
+        if group_type == 'collection':
             facets_dict = OrderedDict()
             facets_dict.update({'res_format': _('Formats')})
             facets_dict.update({'vocab_geographical_coverage': _('Geographical Coverage')})

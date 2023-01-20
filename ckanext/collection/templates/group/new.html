@@ -1,0 +1,5 @@
+{% if group_type == 'collection' %}
+    {% include 'collection/new.html' %}
+{% else %}
+    {% ckan_extends %}
+{% endif %}
