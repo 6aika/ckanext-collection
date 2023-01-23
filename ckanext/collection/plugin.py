@@ -90,8 +90,7 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
 
     # IFacets
 
-    def group_facets(self, facets_dict, group_type, package_type):
-
+    def organization_facets(self, facets_dict, group_type, package_type):
         if group_type == 'collection':
             facets_dict = OrderedDict()
             facets_dict.update({'res_format': _('Formats')})
