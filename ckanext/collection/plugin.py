@@ -1,12 +1,22 @@
+from ckan.lib.dictization.model_dictize import group_list_dictize
+from ckan.model import Package
+from flask import Blueprint
+from flask.views import MethodView
+
+
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+from ckan import model
 from ckan.lib.plugins import DefaultTranslation
 import json
 from ckanext.collection.logic import action
 from ckan.logic import get_action
-from ckan.plugins.toolkit import _
+from ckan.plugins.toolkit import _, g, ObjectNotFound, NotAuthorized, abort, render, request
+from ckan.lib import helpers as h
 
 from collections import OrderedDict
+
+NotFound = ObjectNotFound
 
 import logging
 log = logging.getLogger(__name__)
@@ -21,6 +31,7 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
         plugins.implements(plugins.ITranslation, inherit=True)
     plugins.implements(plugins.IActions, inherit=True)
     plugins.implements(plugins.IFacets, inherit=True)
+    plugins.implements(plugins.IBlueprint)
 
     # IConfigurer
 
@@ -56,7 +67,7 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
                 'include_extras': True,
                 'type': 'collection'
             }
-            collections_with_extras =get_action('group_list')(context, data_dict)
+            collections_with_extras = get_action('group_list')(context, data_dict)
 
             for i, facet in enumerate(search_results['search_facets']['collections'].get('items', [])):
                 for collection in collections_with_extras:
@@ -90,3 +101,103 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
             facets_dict.update({'collections': _('Collections')})
 
         return facets_dict
+
+    # IBlueprint
+    def get_blueprint(self):
+        collection_blueprint = Blueprint('collections', self.__module__, url_prefix=u'/dataset', url_defaults={u'package_type': u'dataset'})
+        collection_blueprint.template_folder = 'templates'
+
+        collection_blueprint.add_url_rule('/collections/<id>', 'dataset_collections', view_func=GroupView.as_view('collections'))
+
+        return collection_blueprint
+
+
+class GroupView(MethodView):
+    def _prepare(self, id):
+        context = {
+            u'model': model,
+            u'session': model.Session,
+            u'user': g.user,
+            u'for_view': True,
+            u'auth_user_obj': g.userobj,
+            u'use_cache': False
+        }
+
+        try:
+            pkg_dict = get_action(u'package_show')(context, {u'id': id})
+        except (NotFound, NotAuthorized):
+            return abort(404, _(u'Dataset not found'))
+        return context, pkg_dict
+
+    def post(self, package_type, id):
+        context, pkg_dict = self._prepare(id)
+        new_collection = request.form.get(u'collection_added')
+        if new_collection:
+            data_dict = {
+                u"id": new_collection,
+                u"object": id,
+                u"object_type": u'package',
+                u"capacity": u'public'
+            }
+            try:
+                get_action(u'member_create')(context, data_dict)
+            except NotFound:
+                return abort(404, _(u'Collection not found'))
+
+        removed_collection = None
+        for param in request.form:
+            if param.startswith(u'collection_remove'):
+                removed_collection = param.split(u'.')[-1]
+                break
+        if removed_collection:
+            data_dict = {
+                u"id": removed_collection,
+                u"object": id,
+                u"object_type": u'package'
+            }
+
+            try:
+                get_action(u'member_delete')(context, data_dict)
+            except NotFound:
+                return abort(404, _(u'Group not found'))
+        return h.redirect_to('collections.dataset_collections', id=id)
+
+    def get(self, package_type, id):
+        context, pkg_dict = self._prepare(id)
+        dataset_type = pkg_dict[u'type'] or package_type
+        context[u'is_member'] = True
+
+        pkg_obj = Package.get(pkg_dict['id'])
+        collection_list = group_list_dictize(pkg_obj.get_groups('collection', None), context)
+        data_dict = {'id': id, 'type': 'collection', 'all_fields': True, 'include_extras': True}
+
+        # Every collection will get listed here instead of using group_list_authz as implemented in CKAN core groups,
+        # since group_list_authz does not support group type
+        collections = get_action('group_list')(context, data_dict)
+
+        users_collections = get_action(u'group_list_authz')(context, data_dict)
+
+        pkg_group_ids = set(
+            group[u'id'] for group in collection_list
+        )
+
+        user_collection_ids = set(group[u'id'] for group in users_collections)
+        cols = [collection for collection in collections if collection['id'] in user_collection_ids]
+
+        collection_list = [collection for collection in collections if collection['id'] in pkg_group_ids]
+
+        collection_dropdown = [[group[u'id'], group]
+                          for group in cols
+                          if group[u'id'] not in pkg_group_ids]
+
+        for collection in collection_list:
+            collection[u'user_member'] = (collection[u'id'] in user_collection_ids)
+
+        return render(
+            u'package/collection_list.html', {
+                u'dataset_type': dataset_type,
+                u'pkg_dict': pkg_dict,
+                u'collection_dropdown': collection_dropdown,
+                u'collection_list': collection_list
+            }
+        )

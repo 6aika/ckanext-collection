@@ -3,10 +3,10 @@
 
 {% block primary_content_inner %}
   <h2 class="hide-heading">{{ _('Collections') }}</h2>
-  {% if c.collection_dropdown %}
+  {% if collection_dropdown %}
     <form method="post" class="form-horizontal">
       <select id="field-add_collection" name="collection_added" data-module="autocomplete">
-        {% for option in c.collection_dropdown %}
+        {% for option in collection_dropdown %}
           <option value="{{ option[0] }}"> {{ h.get_translated(option[1], 'title') }}</option>
         {% endfor %}
       </select>
@@ -15,9 +15,9 @@
   {% endif %}
 
 
-  {% if c.collection_list %}
+  {% if collection_list %}
     <form method="post">
-      {% snippet 'collection/snippets/collection_list.html', collections=c.collection_list %}
+      {% snippet 'collection/snippets/collection_list.html', collections=collection_list %}
     </form>
   {% else %}
     <p class="empty">{{ _('There are no collections associated with this dataset') }}</p>
