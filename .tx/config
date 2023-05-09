@@ -1,8 +1,9 @@
 [main]
 host = https://www.transifex.com
 
-[sixodp.ckanext-collection]
+[o:6aika-dataportal:p:sixodp:r:ckanext-collection]
 file_filter = ckanext/collection/i18n/<lang>/LC_MESSAGES/ckanext-collection.po
 source_file = ckanext/collection/i18n/ckanext-collection.pot
 source_lang = en
-type = PO
+type        = PO
+
