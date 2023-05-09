@@ -1,46 +1,48 @@
 # Translations template for ckanext-collection.
-# Copyright (C) 2019 ORGANIZATION
+# Copyright (C) 2023 ORGANIZATION
 # This file is distributed under the same license as the ckanext-collection
 # project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 # 
 # Translators:
 # Juha Härkönen <juha.harkonen@ouka.fi>, 2017
 # Joonas Dukpa, 2019
 # Hami Kekkonen <hami.kekkonen@hel.fi>, 2019
-# Zharktas <jari-pekka.voutilainen@gofore.com>, 2019
+# Zharktas <jari-pekka.voutilainen@gofore.com>, 2023
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-collection 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-26 11:46+0000\n"
+"POT-Creation-Date: 2023-05-09 11:37+0000\n"
 "PO-Revision-Date: 2016-12-07 16:28+0000\n"
-"Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>, 2019\n"
-"Language-Team: English (United Kingdom) (https://www.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
+"Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>, 2023\n"
+"Language-Team: English (United Kingdom) (https://app.transifex.com/6aika-dataportal/teams/68018/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.3.4\n"
+"Generated-By: Babel 2.7.0\n"
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ckanext/collection/controller.py:85
-msgid "Not authorized to see this page"
-msgstr "Not authorised to see this page"
+#: ckanext/collection/plugin.py:96
+msgid "Formats"
+msgstr "Formats"
 
-#: ckanext/collection/controller.py:144 ckanext/collection/controller.py:304
-#: ckanext/collection/controller.py:335 ckanext/collection/controller.py:369
-#: ckanext/collection/controller.py:384
-msgid "Collection not found"
-msgstr ""
+#: ckanext/collection/plugin.py:97
+msgid "Geographical Coverage"
+msgstr "Geographical coverage"
 
-#: ckanext/collection/controller.py:225 ckanext/collection/plugin.py:112
+#: ckanext/collection/plugin.py:98
+msgid "Groups"
+msgstr "Categories"
+
+#: ckanext/collection/plugin.py:99
 msgid "Organizations"
 msgstr "Organisations"
 
-#: ckanext/collection/controller.py:226 ckanext/collection/plugin.py:113
+#: ckanext/collection/plugin.py:100
 #: ckanext/collection/templates/collection/base_form_page.html:6
 #: ckanext/collection/templates/collection/edit_base.html:3
 #: ckanext/collection/templates/collection/edit_base.html:8
@@ -50,52 +52,21 @@ msgstr "Organisations"
 #: ckanext/collection/templates/collection/read_base.html:3
 #: ckanext/collection/templates/collection/read_base.html:6
 #: ckanext/collection/templates/package/collection_list.html:5
-#: ckanext/collection/templates/package/read_base.html:7
+#: ckanext/collection/templates/package/read_base.html:6
 msgid "Collections"
 msgstr ""
 
-#: ckanext/collection/controller.py:227
-msgid "Tags"
-msgstr "Tags"
-
-#: ckanext/collection/controller.py:228 ckanext/collection/plugin.py:109
-msgid "Formats"
-msgstr "Formats"
-
-#: ckanext/collection/controller.py:229
-msgid "Licenses"
-msgstr ""
-
-#: ckanext/collection/controller.py:306
-msgid "Integrity Error"
-msgstr ""
-
-#: ckanext/collection/controller.py:324
-#, python-format
-msgid "Unauthorized to delete group %s"
-msgstr "Unauthorised to delete group %s"
-
-#: ckanext/collection/controller.py:329
-msgid "Collection has been deleted."
-msgstr ""
-
-#: ckanext/collection/controller.py:333
-#, python-format
-msgid "Unauthorized to delete collection %s"
-msgstr "Unauthorised to delete group %s"
-
-#: ckanext/collection/controller.py:356
+#: ckanext/collection/plugin.py:128
 msgid "Dataset not found"
 msgstr ""
 
-#: ckanext/collection/plugin.py:110
-msgid "Geographical Coverage"
-msgstr "Geographical coverage"
+#: ckanext/collection/plugin.py:144
+msgid "Collection not found"
+msgstr ""
 
-#: ckanext/collection/plugin.py:111
-#: ckanext/collection/templates/package/read_base.html:5
-msgid "Groups"
-msgstr "Categories"
+#: ckanext/collection/plugin.py:161
+msgid "Group not found"
+msgstr ""
 
 #: ckanext/collection/templates/admin/config.html:7
 msgid ""
@@ -164,13 +135,13 @@ msgid "Search collections..."
 msgstr ""
 
 #: ckanext/collection/templates/collection/index.html:21
-#: ckanext/collection/templates/collection/read.html:22
+#: ckanext/collection/templates/collection/read.html:25
 #: ckanext/collection/templates/snippets/search_form_without_input.html:30
 msgid "Name Ascending"
 msgstr "Name ascending"
 
 #: ckanext/collection/templates/collection/index.html:21
-#: ckanext/collection/templates/collection/read.html:23
+#: ckanext/collection/templates/collection/read.html:26
 #: ckanext/collection/templates/snippets/search_form_without_input.html:30
 msgid "Name Descending"
 msgstr "Name descending"
@@ -198,61 +169,100 @@ msgid "Create Collection"
 msgstr "Create collection"
 
 #: ckanext/collection/templates/collection/new_collection_form.html:26
+#: ckanext/collection/templates/collection/snippets/collection_form.html:60
 msgid "Are you sure you want to delete this Collection?"
 msgstr "Are you sure you want to delete this collection?"
 
 #: ckanext/collection/templates/collection/new_collection_form.html:27
+#: ckanext/collection/templates/collection/snippets/collection_form.html:60
 msgid "Delete"
 msgstr "Delete"
 
-#: ckanext/collection/templates/collection/read.html:21
-msgid "Relevance"
-msgstr "Relevance"
+#: ckanext/collection/templates/collection/read.html:22
+msgid "Last Created"
+msgstr ""
 
-#: ckanext/collection/templates/collection/read.html:24
-msgid "Last Modified"
-msgstr "Last modified"
-
-#: ckanext/collection/templates/collection/read.html:25
+#: ckanext/collection/templates/collection/read.html:23
 msgid "Popular"
 msgstr "Popular"
 
+#: ckanext/collection/templates/collection/read.html:24
+msgid "Relevance"
+msgstr "Relevance"
+
 #: ckanext/collection/templates/collection/read.html:27
+msgid "Last Modified"
+msgstr "Last modified"
+
+#: ckanext/collection/templates/collection/read.html:29
 #: ckanext/collection/templates/snippets/search_form_without_input.html:3
 msgid "Search datasets..."
 msgstr ""
 
-#: ckanext/collection/templates/collection/snippets/collection_item.html:32
+#: ckanext/collection/templates/collection/read.html:44
+msgid "Filter results"
+msgstr ""
+
+#: ckanext/collection/templates/collection/snippets/collection_form.html:10
+msgid "Name"
+msgstr ""
+
+#: ckanext/collection/templates/collection/snippets/collection_form.html:10
+msgid "My Collection"
+msgstr ""
+
+#: ckanext/collection/templates/collection/snippets/collection_form.html:18
+msgid "URL"
+msgstr ""
+
+#: ckanext/collection/templates/collection/snippets/collection_form.html:18
+msgid "my-collection"
+msgstr ""
+
+#: ckanext/collection/templates/collection/snippets/collection_form.html:20
+msgid "Description"
+msgstr ""
+
+#: ckanext/collection/templates/collection/snippets/collection_form.html:20
+msgid "A little information about my collection..."
+msgstr ""
+
+#: ckanext/collection/templates/collection/snippets/collection_form.html:35
+#: ckanext/collection/templates/collection/snippets/collection_form.html:48
+msgid "Custom Field"
+msgstr ""
+
+#: ckanext/collection/templates/collection/snippets/collection_form.html:63
+msgid "Save Collection"
+msgstr ""
+
+#: ckanext/collection/templates/collection/snippets/collection_item.html:33
 msgid "{num} Dataset"
 msgid_plural "{num} Datasets"
 msgstr[0] "{num} dataset"
 msgstr[1] "{num} datasets"
 
-#: ckanext/collection/templates/collection/snippets/collection_item.html:34
+#: ckanext/collection/templates/collection/snippets/collection_item.html:35
 msgid "0 Datasets"
 msgstr "0 datasets"
 
-#: ckanext/collection/templates/collection/snippets/collection_item.html:38
 #: ckanext/collection/templates/collection/snippets/collection_item.html:39
+#: ckanext/collection/templates/collection/snippets/collection_item.html:40
 msgid "View {name}"
 msgstr ""
 
-#: ckanext/collection/templates/collection/snippets/collection_item.html:42
+#: ckanext/collection/templates/collection/snippets/collection_item.html:43
 #: ckanext/collection/templates/snippets/search_form_without_input.html:66
 msgid "Remove"
 msgstr "Remove"
 
-#: ckanext/collection/templates/collection/snippets/collection_item.html:42
+#: ckanext/collection/templates/collection/snippets/collection_item.html:43
 msgid "Remove dataset from this collection"
 msgstr ""
 
-#: ckanext/collection/templates/collection/snippets/feeds.html:3
+#: ckanext/collection/templates/collection/snippets/feeds.html:2
 msgid "Datasets in collection: {group}"
 msgstr ""
-
-#: ckanext/collection/templates/collection/snippets/feeds.html:4
-msgid "Recent Revision History"
-msgstr "Recent revision history"
 
 #: ckanext/collection/templates/collection/snippets/helper.html:4
 msgid "What are Collections?"
@@ -260,10 +270,10 @@ msgstr "What are collections?"
 
 #: ckanext/collection/templates/collection/snippets/helper.html:8
 msgid ""
-" You can use CKAN Collections to create and manage collections of datasets. "
+"You can use CKAN Collections to create and manage collections of datasets. "
 "This could be to catalogue datasets for a particular project or team, or on "
 "a particular theme, or as a very simple way to help people find and search "
-"your own published datasets. "
+"your own published datasets."
 msgstr ""
 "What are data collections? Data collections are groups of data that have "
 "similar datasets. For example, by project, publication, user group or theme."
@@ -282,9 +292,9 @@ msgstr ""
 
 #: ckanext/collection/templates/group/member_new.html:12
 msgid ""
-" <p><strong>Admin:</strong> Can edit collection information, as well as "
+"<p><strong>Admin:</strong> Can edit collection information, as well as "
 "manage members.</p> <p><strong>Member:</strong> Can add/remove datasets from"
-" collections.</p> "
+" collections.</p>"
 msgstr ""
 
 #: ckanext/collection/templates/package/collection_list.html:13
@@ -299,27 +309,18 @@ msgstr ""
 msgid "There are no collections associated with this dataset"
 msgstr ""
 
-#: ckanext/collection/templates/package/read_base.html:4
-msgid "Dataset"
-msgstr ""
-
-#: ckanext/collection/templates/package/read_base.html:6
-msgid "Activity Stream"
-msgstr "Change history"
-
 #: ckanext/collection/templates/snippets/search_form_without_input.html:43
 msgid "Go"
 msgstr ""
 
 #: ckanext/collection/templates/snippets/search_form_without_input.html:77
-msgid ""
-" <p class=\"extra\">Please try another search or change search facets.</p> "
+msgid "<p class=\"extra\">Please try another search or change search facets.</p>"
 msgstr ""
 
 #: ckanext/collection/templates/snippets/search_form_without_input.html:83
 msgid ""
-" <p><strong>There was an error while searching.</strong> Please try "
-"again.</p> "
+"<p><strong>There was an error while searching.</strong> Please try "
+"again.</p>"
 msgstr ""
 
 #: ckanext/collection/templates/snippets/search_result_text.html:15
