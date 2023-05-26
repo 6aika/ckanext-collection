@@ -66,7 +66,7 @@ msgstr ""
 
 #: ckanext/collection/plugin.py:161
 msgid "Group not found"
-msgstr ""
+msgstr "Category not found"
 
 #: ckanext/collection/templates/admin/config.html:7
 msgid ""
@@ -209,7 +209,7 @@ msgstr ""
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:10
 msgid "My Collection"
-msgstr ""
+msgstr "Name of the collection"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:18
 msgid "URL"
@@ -217,7 +217,7 @@ msgstr ""
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:18
 msgid "my-collection"
-msgstr ""
+msgstr "name-of-the-collection"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:20
 msgid "Description"
@@ -225,7 +225,7 @@ msgstr ""
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:20
 msgid "A little information about my collection..."
-msgstr ""
+msgstr "A brief description of the collection"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:35
 #: ckanext/collection/templates/collection/snippets/collection_form.html:48
@@ -234,7 +234,7 @@ msgstr ""
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:63
 msgid "Save Collection"
-msgstr ""
+msgstr "Save collection"
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:33
 msgid "{num} Dataset"
