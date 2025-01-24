@@ -18,7 +18,7 @@
     {
       "field_name": "name",
       "label": "URL",
-      "validators": "not_empty unicode name_validator group_name_validator",
+      "validators": "not_empty unicode_safe name_validator group_name_validator",
       "form_snippet": "slug_sixodp_ex.html",
       "form_placeholder": "my-collection"
     },
@@ -38,7 +38,7 @@
     {
       "field_name": "image_url",
       "label": "Icon URL",
-      "validators": "ignore_missing unicode remove_whitespace",
+      "validators": "ignore_missing unicode_safe remove_whitespace",
       "form_snippet": "upload.html",
       "form_placeholder": "http://example.com/my-image.png",
       "upload_field": "image_upload",

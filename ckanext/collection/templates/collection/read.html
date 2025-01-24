@@ -11,11 +11,11 @@
   {% endblock %}
   {% block groups_search_form %}
     {% set facets = {
-      'fields': c.fields_grouped,
-      'search': c.search_facets,
-      'titles': c.facet_titles,
-      'translated_fields': c.translated_fields,
-      'remove_field': c.remove_field }
+      'fields': fields_grouped,
+      'search': search_facets,
+      'titles': facet_titles,
+      'translated_fields': translated_fields,
+      'remove_field': remove_field }
             %}
 
   {% set sorting = [
@@ -42,8 +42,8 @@
   {{ super() }}
 <div class="filters">
   <h2 class="filter-list-heading">{{_('Filter results')}}</h2>
-  {% for facet in c.facet_titles %}
-    {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet, extras={'id':c.group_dict.id}) }}
+  {% for facet in facet_titles %}
+    {{ h.snippet('snippets/facet_list.html', title=facet_titles[facet], name=facet, extras={'id':group_dict.id}, search_facets=search_facets) }}
   {% endfor %}
 </div>
 {% endblock %}

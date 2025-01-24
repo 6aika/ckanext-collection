@@ -49,7 +49,7 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
 
         return schema
 
-    def before_index(self, data_dict):
+    def before_dataset_index(self, data_dict):
         groups = json.loads(data_dict.get('data_dict', {})).get('groups',[])
 
         data_dict['collections'] = [group.get('name', '') for group in groups if group.get('type', "") == 'collection']
@@ -59,7 +59,7 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
 
         return data_dict
 
-    def after_search(self, search_results, search_params):
+    def after_dataset_search(self, search_results, search_params):
         if search_results['search_facets'].get('collections'):
             context = {'for_view': True, 'with_private': False}
             data_dict = {
