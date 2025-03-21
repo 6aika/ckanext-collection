@@ -3,8 +3,8 @@
 {% block subtitle %}{{ c.group_dict.display_name }} - {{ _('Collections') }}{% endblock %}
 
 {% block breadcrumb_content %}
-  <li>{% link_for _('Collections'), named_route='collection.index' %}</li>
-  <li class="active">{% link_for h.get_translated_or_default_locale(c.group_dict, 'title')|truncate(35), named_route='collection.read', id=c.group_dict.name %}</li>
+  <li class="breadcrumb-item">{% link_for _('Collections'), named_route='collection.index' %}</li>
+  <li class="active breadcrumb-item">{% link_for h.get_translated_or_default_locale(c.group_dict, 'title')|truncate(35), named_route='collection.read', id=c.group_dict.name %}</li>
 {% endblock %}
 
 {% block content_action %}

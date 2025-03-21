@@ -5,10 +5,10 @@
 {% set collection = c.group_dict %}
 
 {% block breadcrumb_content %}
-  <li>{% link_for _('Collections'), named_route='collection.index' %}</li>
+  <li class="breadcrumb-item">{% link_for _('Collections'), named_route='collection.index' %}</li>
   {% block breadcrumb_content_inner %}
-    <li>{% link_for collection.display_name|truncate(35), named_route='collection.read', id=collection.name %}</li>
-    <li class="active">{% link_for _('Manage'), named_route='collection.edit', id=collection.name %}</li>
+    <li class="breadcrumb-item">{% link_for collection.display_name|truncate(35), named_route='collection.read', id=collection.name %}</li>
+    <li class="active breadcrumb-item">{% link_for _('Manage'), named_route='collection.edit', id=collection.name %}</li>
   {% endblock %}
 {% endblock %}
 

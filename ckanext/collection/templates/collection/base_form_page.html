@@ -3,8 +3,8 @@
 {% block page_primary_action %}{% endblock %}
 
 {% block breadcrumb_content %}
-  <li>{{ h.nav_link(_('Collections'), named_route='collection.index') }}</li>
-  <li class="active">{% block breadcrumb_link %}{{ h.nav_link(_('Add a Collection'), named_route='collection.new') }}{% endblock %}</li>
+  <li class="breadcrumb-item">{{ h.nav_link(_('Collections'), named_route='collection.index') }}</li>
+  <li class="active breadcrumb-item">{% block breadcrumb_link %}{{ h.nav_link(_('Add a Collection'), named_route='collection.new') }}{% endblock %}</li>
 {% endblock %}
 
 {% block primary_content_inner %}
