@@ -5,6 +5,7 @@
   <h2 class="hide-heading">{{ _('Collections') }}</h2>
   {% if collection_dropdown %}
     <form method="post" class="form-horizontal">
+      {{ h.csrf_input() }}
       <select id="field-add_collection" name="collection_added" data-module="autocomplete">
         {% for option in collection_dropdown %}
           <option value="{{ option[0] }}"> {{ h.get_translated(option[1], 'title') }}</option>
@@ -17,6 +18,7 @@
 
   {% if collection_list %}
     <form method="post">
+      {{ h.csrf_input() }}
       {% snippet 'collection/snippets/collection_list.html', collections=collection_list %}
     </form>
   {% else %}
