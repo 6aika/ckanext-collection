@@ -5,10 +5,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 # 
 # Translators:
-# Mikko Nieminen <mikko.nieminen@gofore.com>, 2017
-# Joonas Dukpa, 2017
-# Hami Kekkonen <hami.kekkonen@hel.fi>, 2020
-# Zharktas <jari-pekka.voutilainen@gofore.com>, 2023
+# Zharktas <jari-pekka.voutilainen@gofore.com>, 2025
+# Hami Kekkonen <hami.kekkonen@hel.fi>, 2025
 # 
 #, fuzzy
 msgid ""
@@ -16,8 +14,8 @@ msgstr ""
 "Project-Id-Version: ckanext-collection 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2023-05-09 11:37+0000\n"
-"PO-Revision-Date: 2016-12-07 16:28+0000\n"
-"Last-Translator: Zharktas <jari-pekka.voutilainen@gofore.com>, 2023\n"
+"PO-Revision-Date: 2025-02-27 07:55+0000\n"
+"Last-Translator: Hami Kekkonen <hami.kekkonen@hel.fi>, 2025\n"
 "Language-Team: Finnish (https://app.transifex.com/6aika-dataportal/teams/68018/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,7 +56,7 @@ msgstr "Datakokoelmat"
 
 #: ckanext/collection/plugin.py:128
 msgid "Dataset not found"
-msgstr "Tietoaineistoa ei löytynyt"
+msgstr "Dataa ei löytynyt"
 
 #: ckanext/collection/plugin.py:144
 msgid "Collection not found"
@@ -66,7 +64,7 @@ msgstr "Datakokoelmaa ei löytynyt"
 
 #: ckanext/collection/plugin.py:161
 msgid "Group not found"
-msgstr ""
+msgstr "Kategoriaa ei löytynyt"
 
 #: ckanext/collection/templates/admin/config.html:7
 msgid ""
@@ -114,7 +112,7 @@ msgstr "Muokkaa"
 
 #: ckanext/collection/templates/collection/edit.html:12
 msgid "Edit Collection"
-msgstr "Muokkaa datakokoelmaa"
+msgstr "Muokkaa"
 
 #: ckanext/collection/templates/collection/edit_base.html:16
 msgid "View"
@@ -164,7 +162,7 @@ msgstr "Luo datakokoelma"
 
 #: ckanext/collection/templates/collection/new_collection_form.html:18
 msgid "Update Collection"
-msgstr "Päivitä datakokoelma"
+msgstr "Päivitä datakokoelmaa"
 
 #: ckanext/collection/templates/collection/new_collection_form.html:20
 msgid "Create Collection"
@@ -182,7 +180,7 @@ msgstr "Poista"
 
 #: ckanext/collection/templates/collection/read.html:22
 msgid "Last Created"
-msgstr ""
+msgstr "Viimeksi luotu"
 
 #: ckanext/collection/templates/collection/read.html:23
 msgid "Popular"
@@ -199,7 +197,7 @@ msgstr "Viimeksi muokattu"
 #: ckanext/collection/templates/collection/read.html:29
 #: ckanext/collection/templates/snippets/search_form_without_input.html:3
 msgid "Search datasets..."
-msgstr "Hae tietoaineistoista..."
+msgstr "Hae datoista..."
 
 #: ckanext/collection/templates/collection/read.html:44
 msgid "Filter results"
@@ -236,17 +234,17 @@ msgstr "Muokattu kenttä"
 
 #: ckanext/collection/templates/collection/snippets/collection_form.html:63
 msgid "Save Collection"
-msgstr "Tallenna datakokoelma"
+msgstr "Tallenna"
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:33
 msgid "{num} Dataset"
 msgid_plural "{num} Datasets"
 msgstr[0] "{num} tietoaineisto"
-msgstr[1] "{num} tietoaineistoa"
+msgstr[1] "{num} dataa"
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:35
 msgid "0 Datasets"
-msgstr "0 tietoaineistoa"
+msgstr "0 dataa"
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:39
 #: ckanext/collection/templates/collection/snippets/collection_item.html:40
@@ -260,11 +258,11 @@ msgstr "Poista"
 
 #: ckanext/collection/templates/collection/snippets/collection_item.html:43
 msgid "Remove dataset from this collection"
-msgstr "Poista tietoaineisto tästä datakokoelmasta"
+msgstr "Poista data tästä datakokoelmasta"
 
 #: ckanext/collection/templates/collection/snippets/feeds.html:2
 msgid "Datasets in collection: {group}"
-msgstr "Tietoaineistoja datakokoelmassa: {group}"
+msgstr "Datoja datakokoelmassa: {group}"
 
 #: ckanext/collection/templates/collection/snippets/helper.html:4
 msgid "What are Collections?"
@@ -286,7 +284,7 @@ msgstr "Poistetut"
 
 #: ckanext/collection/templates/collection/snippets/info.html:24
 msgid "Datasets"
-msgstr "Tietoaineistot"
+msgstr "Datat"
 
 #: ckanext/collection/templates/group/member_new.html:9
 msgid "What are roles?"
@@ -298,10 +296,13 @@ msgid ""
 "manage members.</p> <p><strong>Member:</strong> Can add/remove datasets from"
 " collections.</p>"
 msgstr ""
+"<p><strong>Ylläpitäjä:</strong> \n"
+"Pystyy muokkaamaan datakokoelman tietoja sekä hallinnoimaan jäseniä.</p>\n"
+"<p><strong>Jäsen:</strong> Pystyy lisäämään ja poistamaan datoja datakokoelmasta.</p>"
 
 #: ckanext/collection/templates/package/collection_list.html:13
 msgid "Associate this collection with this dataset"
-msgstr "Liitä tietoaineisto tähän datakokoelmaan"
+msgstr "Liitä data tähän datakokoelmaan"
 
 #: ckanext/collection/templates/package/collection_list.html:13
 msgid "Add to collection"
@@ -309,7 +310,7 @@ msgstr "Lisää datakokoelmaan"
 
 #: ckanext/collection/templates/package/collection_list.html:23
 msgid "There are no collections associated with this dataset"
-msgstr "Tietoaineisto ei kuulu datakokoelmaan"
+msgstr "Data ei kuulu mihinkään datakokoelmaan"
 
 #: ckanext/collection/templates/snippets/search_form_without_input.html:43
 msgid "Go"
@@ -317,13 +318,13 @@ msgstr "Siirry"
 
 #: ckanext/collection/templates/snippets/search_form_without_input.html:77
 msgid "<p class=\"extra\">Please try another search or change search facets.</p>"
-msgstr ""
+msgstr "<p class=\"extra\">Kokeile muita hakusanoja tai suodatusvaihtoehtoja.</p>"
 
 #: ckanext/collection/templates/snippets/search_form_without_input.html:83
 msgid ""
 "<p><strong>There was an error while searching.</strong> Please try "
 "again.</p>"
-msgstr ""
+msgstr "<p><strong>Virhe haussa.</strong>Ole hyvä ja yritä uudelleen.</p>"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:15
 msgid "{number} dataset found for \"{query}\""
@@ -373,7 +374,7 @@ msgstr[1] "Haulla \"{query}\" löytyi {number} datakokoelmaa"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:28
 msgid "No collections found for \"{query}\""
-msgstr "Yhtään datakokoelmaa ei löytynyt haulle \"{query}\""
+msgstr "Yhtään datakokoelmaa ei löytynyt haulla \"{query}\""
 
 #: ckanext/collection/templates/snippets/search_result_text.html:29
 msgid "{number} collection found"
