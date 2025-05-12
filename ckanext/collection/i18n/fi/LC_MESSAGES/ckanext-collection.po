@@ -56,7 +56,7 @@ msgstr "Datakokoelmat"
 
 #: ckanext/collection/plugin.py:128
 msgid "Dataset not found"
-msgstr "Tietoaineistoa ei löytynyt"
+msgstr "Dataa ei löytynyt"
 
 #: ckanext/collection/plugin.py:144
 msgid "Collection not found"
