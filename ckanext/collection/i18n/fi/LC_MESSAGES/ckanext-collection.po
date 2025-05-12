@@ -374,7 +374,7 @@ msgstr[1] "Haulla \"{query}\" löytyi {number} datakokoelmaa"
 
 #: ckanext/collection/templates/snippets/search_result_text.html:28
 msgid "No collections found for \"{query}\""
-msgstr "Yhtään datakokoelmaa ei löytynyt haulle \"{query}\""
+msgstr "Yhtään datakokoelmaa ei löytynyt haulla \"{query}\""
 
 #: ckanext/collection/templates/snippets/search_result_text.html:29
 msgid "{number} collection found"
