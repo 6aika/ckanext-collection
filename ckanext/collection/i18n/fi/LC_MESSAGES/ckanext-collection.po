@@ -310,7 +310,7 @@ msgstr "Lisää datakokoelmaan"
 
 #: ckanext/collection/templates/package/collection_list.html:23
 msgid "There are no collections associated with this dataset"
-msgstr "Data ei kuulu datakokoelmaan"
+msgstr "Data ei kuulu mihinkään datakokoelmaan"
 
 #: ckanext/collection/templates/snippets/search_form_without_input.html:43
 msgid "Go"
