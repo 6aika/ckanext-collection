@@ -12,7 +12,7 @@ import json
 from ckanext.collection.logic import action
 from ckan.logic import get_action
 from ckan.plugins.toolkit import _, g, ObjectNotFound, NotAuthorized, abort, render, request
-from ckan.lib import helpers as h
+from ckan.lib import helpers as h, i18n as i18n
 
 from collections import OrderedDict
 
@@ -57,28 +57,26 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
         groups_to_remove = [group.get('name', '') for group in groups if group.get('type', "") == 'collection']
         data_dict['groups'] = [group for group in data_dict['groups'] if group not in groups_to_remove]
 
+        translated_collection_names = {'fi': [], 'en': [], 'sv': []}
+        if data_dict['collections']:
+            for collection in data_dict['collections']:
+                log.info(collection)
+                full_collection = get_action('group_show')({}, {'id': collection, 'include_datasets': False,
+                                                           'include_dataset_count': False, 'include_extras': True,
+                                                           'include_users': False, 'include_groups': False,
+                                                           'include_tags': False, 'include_followers': False})
+                translated_collection_title = full_collection.get('title_translated', {})
+                if translated_collection_title.get('fi'):
+                    translated_collection_names['fi'].append(translated_collection_title['fi'])
+                if translated_collection_title.get('en'):
+                    translated_collection_names['en'].append(translated_collection_title['en'])
+                if translated_collection_title.get('sv'):
+                    translated_collection_names['sv'].append(translated_collection_title['sv'])
+        data_dict['vocab_translated_collection_title_fi'] = translated_collection_names.get('fi')
+        data_dict['vocab_translated_collection_title_en'] = translated_collection_names.get('en')
+        data_dict['vocab_translated_collection_title_sv'] = translated_collection_names.get('sv')
         return data_dict
 
-    def after_dataset_search(self, search_results, search_params):
-        if search_results['search_facets'].get('collections'):
-            context = {'for_view': True, 'with_private': False}
-            data_dict = {
-                'all_fields': True,
-                'include_extras': True,
-                'type': 'collection'
-            }
-            collections_with_extras = get_action('group_list')(context, data_dict)
-
-            for i, facet in enumerate(search_results['search_facets']['collections'].get('items', [])):
-                for collection in collections_with_extras:
-                    if facet['name'] == collection['name']:
-                        search_results['search_facets']['collections']['items'][i]['title_translated'] = collection.get('title_translated')
-                        if not collection.get('title_translated').get('en'):
-                            search_results['search_facets']['collections']['items'][i]['title_translated']['en'] = collection.get('title')
-                        if not collection.get('title_translated').get('sv'):
-                            search_results['search_facets']['collections']['items'][i]['title_translated']['sv'] = collection.get('title')
-
-        return search_results
 
     # IActions
 
@@ -90,14 +88,19 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
 
     # IFacets
 
+    _LOCALE_ALIASES = {'en_GB': 'en'}
     def organization_facets(self, facets_dict, group_type, package_type):
         if group_type == 'collection':
+            lang = i18n.get_lang()
+            if lang in self._LOCALE_ALIASES:
+                lang = self._LOCALE_ALIASES[lang]
+
             facets_dict = OrderedDict()
             facets_dict.update({'res_format': _('Formats')})
             facets_dict.update({'vocab_geographical_coverage': _('Geographical Coverage')})
-            facets_dict.update({'groups': _('Groups')})
+            facets_dict.update({'vocab_translated_group_title_' + lang: _('Groups')})
             facets_dict.update({'organization': _('Organizations')})
-            facets_dict.update({'collections': _('Collections')})
+            facets_dict.update({'vocab_translated_collection_title_' + lang: _('Collections')})
 
         return facets_dict
 
