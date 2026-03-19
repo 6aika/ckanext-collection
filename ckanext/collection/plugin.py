@@ -60,7 +60,6 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
         translated_collection_names = {'fi': [], 'en': [], 'sv': []}
         if data_dict['collections']:
             for collection in data_dict['collections']:
-                log.info(collection)
                 full_collection = get_action('group_show')({}, {'id': collection, 'include_datasets': False,
                                                            'include_dataset_count': False, 'include_extras': True,
                                                            'include_users': False, 'include_groups': False,
@@ -68,10 +67,14 @@ class CollectionPlugin(plugins.SingletonPlugin, DefaultTranslation):
                 translated_collection_title = full_collection.get('title_translated', {})
                 if translated_collection_title.get('fi'):
                     translated_collection_names['fi'].append(translated_collection_title['fi'])
-                if translated_collection_title.get('en'):
+                if translated_collection_title.get('en') != "":
                     translated_collection_names['en'].append(translated_collection_title['en'])
-                if translated_collection_title.get('sv'):
+                else:
+                    translated_collection_names['en'].append(translated_collection_title['fi'])
+                if translated_collection_title.get('sv') != "":
                     translated_collection_names['sv'].append(translated_collection_title['sv'])
+                else:
+                    translated_collection_names['sv'].append(translated_collection_title['fi'])
         data_dict['vocab_translated_collection_title_fi'] = translated_collection_names.get('fi')
         data_dict['vocab_translated_collection_title_en'] = translated_collection_names.get('en')
         data_dict['vocab_translated_collection_title_sv'] = translated_collection_names.get('sv')
