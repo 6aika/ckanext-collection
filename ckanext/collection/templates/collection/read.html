@@ -1,5 +1,10 @@
 {% extends "collection/read_base.html" %}
 
+{%- block head_extras %}
+  {{ super() }}
+  <link rel="canonical" href="{{ h.url_for('%s.read' % group_dict.type, locale='default', id=group_dict.name ) }}" >
+{% endblock %}
+
 {% block subtitle %}{{ h.get_translated_or_default_locale(c.group_dict, 'title') }}{% endblock %}
 
 {% block primary_content_inner %}
